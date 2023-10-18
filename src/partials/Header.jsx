@@ -106,7 +106,7 @@ function Header() {
               >
                 <li className="group relative inline-block">
                   <NavLink
-                    to="contact"
+                    to="/"
                     className="block border-b-2 border-transparent py-2 pl-3 pr-4 hover:scale-110 md:p-0" 
                 
                   >
@@ -115,7 +115,7 @@ function Header() {
                 </li>
                 <li className="group relative inline-block">
                   <NavLink
-                    to="contact"
+                    to="service"
                     className="block border-b-2 border-transparent py-2 pl-3 pr-4 hover:scale-110 md:p-0" 
                 
                   >
@@ -124,7 +124,7 @@ function Header() {
                 </li>
                 <li className="group relative inline-block">
                   <NavLink
-                    to="contact"
+                    to="project"
                     className="block border-b-2 border-transparent py-2 pl-3 pr-4 hover:scale-110 md:p-0" 
                 
                   >
@@ -144,7 +144,7 @@ function Header() {
                 </li>
                 <li className="group relative inline-block">
                   <NavLink
-                    to="contact"
+                    to="loan"
                     className="block border-b-2 border-transparent py-2 pl-3 pr-4 hover:scale-110 md:p-0" 
                 
                   >
@@ -153,7 +153,7 @@ function Header() {
                 </li>
                 <li className="group relative inline-block">
                   <NavLink
-                    to="contact"
+                    to="deposit"
                     className="block border-b-2 border-transparent py-2 pl-3 pr-4 hover:scale-110 md:p-0" 
                 
                   >
@@ -162,7 +162,7 @@ function Header() {
                 </li>
                 <li className="group relative inline-block">
                   <NavLink
-                    to="contact"
+                    to="about"
                     className="block border-b-2 border-transparent py-2 pl-3 pr-4 hover:scale-110 md:p-0" 
                 
                   >
@@ -171,11 +171,20 @@ function Header() {
                 </li>
                 <li className="group relative inline-block">
                   <NavLink
-                    to="contact"
+                    to="faqs"
                     className="block border-b-2 border-transparent py-2 pl-3 pr-4 hover:scale-110 md:p-0" 
                 
                   >
                     Faqs
+                  </NavLink>
+                </li>
+                <li className="group relative inline-block">
+                  <NavLink
+                    to="contact"
+                    className="block border-b-2 border-transparent py-2 pl-3 pr-4 hover:scale-110 md:p-0" 
+                
+                  >
+                    Contact
                   </NavLink>
                 </li>
                 
