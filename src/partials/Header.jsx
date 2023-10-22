@@ -131,17 +131,7 @@ function Header() {
                     Project
                   </NavLink>
                 </li>
-                <li className="group relative inline-block">
-                  <div className="relative group">
-                    <summary className="m-1 btn">open or close <i class="fa-solid fa-caret-down"></i></summary>
-                    <ul
-                      className="p-2  shadow menu dropdown-content z-[1] bg-white rounded-box w-32 absolute hidden group-hover:block "
-                    >
-                      <li className="py-2"><a>Item 1</a></li>
-                      <li className=""><a>Item 2</a></li>
-                    </ul>
-                  </div>
-                </li>
+               
                 <li className="group relative inline-block">
                   <NavLink
                     to="loan"

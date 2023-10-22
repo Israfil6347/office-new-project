@@ -9,6 +9,8 @@ import Loan from "./public_pages/loan/Loan";
 import Deposit from "./public_pages/deposit/Deposit";
 import Banner from "./partials/Banner";
 import { useLocation } from 'react-router-dom';
+import Contact from "./public_pages/contact/Contact";
+import About from "./public_pages/about/About";
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route path="project" element={<Project />} />
         <Route path="loan" element={<Loan />} />
         <Route path="deposit" element={<Deposit />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="about" element={<About />} />
       </Routes>
       <Footer />
 
