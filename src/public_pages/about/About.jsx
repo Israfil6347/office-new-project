@@ -10,9 +10,9 @@ function About() {
       <SidebarTemplate
         sidebarMenuTitle={"About Us"}
         sidebarMenuExpended={false}
-        setSidebarMenuExpended={function (sidebarMenuExpended: boolean): void {
-          throw new Error("Function not implemented.");
-        }}
+        // setSidebarMenuExpended={function (sidebarMenuExpended: boolean): void {
+        //   throw new Error("Function not implemented.");
+        // }}
       >
           <SidebarMenus>
             <ul className='md:flex justify-between'>

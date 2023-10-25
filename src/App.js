@@ -11,6 +11,18 @@ import Banner from "./partials/Banner";
 import { useLocation } from 'react-router-dom';
 import Contact from "./public_pages/contact/Contact";
 import About from "./public_pages/about/About";
+import AboutUs from "./public_pages/about/components/aboutUs/AboutUs";
+import FoundersProfile from "./public_pages/about/components/foundersProfile/FoundersProfile";
+import OurStory from "./public_pages/about/components/ourstory/OurStory";
+import MissionAndValues from "./public_pages/about/components/missionandvalues/MissionAndValues";
+import CoreValues from "./public_pages/about/components/corevalues/CoreValues";
+import PresidentMessage from "./public_pages/about/components/presidentmessage/PresidentMessage";
+import CreditUnionMovement from "./public_pages/about/components/CreditUnionMovement/CreditUnionMovement";
+import Achievement from "./public_pages/about/components/Achievement/Achievement";
+import WomansActivity from "./public_pages/about/components/WomansActivity/WomansActivity";
+import DcCalender from "./public_pages/about/components/DcCalender/DcCalender";
+import Gallery from "./public_pages/about/components/Gallery/Gallery";
+import Publication from "./public_pages/about/components/Publication/Publication";
 
 
 function App() {
@@ -30,7 +42,20 @@ function App() {
         <Route path="loan" element={<Loan />} />
         <Route path="deposit" element={<Deposit />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="about" element={<About />} />
+        <Route path="about" element={<About />} >
+          <Route index element={<AboutUs />} />
+          <Route path="founders-profile" element={<FoundersProfile/>} />
+          <Route path="our-story" element={<OurStory />} />
+          <Route path="mission-vision" element={<MissionAndValues />} />
+          <Route path="core-values" element={<CoreValues />} />
+          <Route path="president-message" element={<PresidentMessage />} />
+          <Route path="cu-movement" element={<CreditUnionMovement />} />
+          <Route path="achievement" element={<Achievement />} />
+          <Route path="women-activity" element={<WomansActivity />} />
+          <Route path="dc-calender" element={<DcCalender />} />
+          <Route path="gallery" element={<Gallery />} />
+          <Route path="publication" element={<Publication/>} />
+        </Route>
       </Routes>
       <Footer />
 

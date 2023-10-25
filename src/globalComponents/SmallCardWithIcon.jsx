@@ -27,7 +27,7 @@ function SmallCardWithIcon({
             <div className="flex flex-col items-center justify-center">
               {icon}
             </div>
-            <div className="text-left ml-4 grow p-4 flex flex-col items-center justify-center">
+            <div className="text-left ml-4 grow p-4 flex flex-col  ">
               <p className="mb-1 font-bold ">{heading}</p>
               <p className="text-xs">{subHeading}</p>
               <div className="text-base">{children}</div>

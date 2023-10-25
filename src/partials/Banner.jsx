@@ -179,7 +179,7 @@ function Banner() {
               </div>
             </div>
 
-            {urlArray.length > 2 ? (
+            {/* {urlArray.length > 2 ? (
               <div className="px-4 md:px-12 text-onPrimary">
                 <div className="relative">
                   <div className="absolute left-0 -bottom-5">
@@ -202,7 +202,7 @@ function Banner() {
               </div>
             ) : (
               ''
-            )}
+            )} */}
           </motion.div>
         </section>
       </AnimatePresence>

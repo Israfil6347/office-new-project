@@ -21,15 +21,11 @@ const SidebarTemplate = ({
   return (
     <>
       <PageContainer>
-        <div className="flex  flex-col-reverse  text-justify gap-6 md:flex-row">
-          <div
-            className={`content  text-left text-onBackground   md:text-justify lg:text-justify`}
-          >
-            <Outlet />
-          </div>
+        <div className="text-justify gap-6 md:flex-row ">
+          
 
           <div
-            className={`h-full w-full overflow-hidden rounded-md bg-surface shadow-sm transition-all duration-300`}
+            className={`mb-6 h-full w-full overflow-hidden rounded-md bg-surface shadow-sm transition-all duration-300`}
           >
             {/* <motion.h2
               className="flex bg-primary p-6 font-semibold uppercase text-onPrimary hover:text-green-200"
@@ -55,6 +51,12 @@ const SidebarTemplate = ({
             >
               {children}
             </ul>
+
+          </div>
+          <div
+            className={`content  text-left text-onBackground   md:text-justify lg:text-justify`}
+          >
+            <Outlet />
           </div>
         </div>
       </PageContainer>

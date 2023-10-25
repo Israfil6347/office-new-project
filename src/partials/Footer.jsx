@@ -1,12 +1,28 @@
 import React from 'react'
+import {  useState } from 'react';
 import erp_logo from '../assets/Logo/erp_logo.png';
 
 
 import { NavLink } from 'react-router-dom';
+import MyModal from '../globalComponents/MyModal';
+import { Size } from '../globalComponents/enum/Size';
 
 function Footer() {
+  const [isLoginWindowOpen, setIsLoginWindowOpen] = useState(false);
+
+  const closeLoginWindow = () => {
+    setIsLoginWindowOpen(false);
+  };
+
   return (
     <>
+    <MyModal
+        show={isLoginWindowOpen}
+        onClose={closeLoginWindow}
+        size={Size.Small}
+      >
+        {/* <LoginView closeLoginWindow={closeLoginWindow} /> */}
+      </MyModal>
       <footer className="mt-auto text-onSurface bg-surface ">
         
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 md:px-12'>
@@ -57,7 +73,11 @@ function Footer() {
             <h2 className='mt-3 text-xl font-semibold lg:text-xl'>Portal login</h2>
             <ul className="flex items-center gap-4 py-4">
               <li className="group flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 shadow-md transition-all duration-300 hover:scale-125 hover:text-primary">
-                  <NavLink>
+                  <NavLink
+                  onClick={()=>{
+                    setIsLoginWindowOpen(true)
+                  }}
+                  >
                         <i className="fa-solid fa-a text-xl text-primary group-hover:text-error"></i>
                   </NavLink>
               </li>
