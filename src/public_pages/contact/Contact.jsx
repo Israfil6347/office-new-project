@@ -1,8 +1,8 @@
 import React from 'react'
-import MyCard from '../../globalComponents/MyCard'
-import MyInputBox from '../../globalComponents/MyInputBox'
-import MyTextareaBox from '../../globalComponents/MyTextareaBox'
-import MyButton from '../../globalComponents/MyButton'
+import MyCard from '../../globalComponents/components/MyCard'
+import MyInputBox from '../../globalComponents/components/MyInputBox'
+import MyTextareaBox from '../../globalComponents/components/MyTextareaBox'
+import MyButton from '../../globalComponents/components/MyButton'
 import {
   GoogleMap,
   InfoWindow,

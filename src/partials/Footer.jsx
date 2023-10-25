@@ -1,11 +1,10 @@
 import React from 'react'
 import {  useState } from 'react';
 import erp_logo from '../assets/Logo/erp_logo.png';
-
-
 import { NavLink } from 'react-router-dom';
-import MyModal from '../globalComponents/MyModal';
-import { Size } from '../globalComponents/enum/Size';
+import MyModal from '../globalComponents/components/MyModal';
+
+
 
 function Footer() {
   const [isLoginWindowOpen, setIsLoginWindowOpen] = useState(false);
@@ -19,7 +18,9 @@ function Footer() {
     <MyModal
         show={isLoginWindowOpen}
         onClose={closeLoginWindow}
-        size={Size.Small}
+        size="S"
+        enter={'LR'}
+        exit={'TB'}
       >
         {/* <LoginView closeLoginWindow={closeLoginWindow} /> */}
       </MyModal>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SmallCardWithIcon from '../../globalComponents/SmallCardWithIcon';
+import SmallCardWithIcon from '../../globalComponents/components/SmallCardWithIcon';
 
 
 function LoanItem({ url, Heading, SubHeading }) {

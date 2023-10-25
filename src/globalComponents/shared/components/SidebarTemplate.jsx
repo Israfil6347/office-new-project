@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import PageContainer from '../../PageContainer';
+import PageContainer from '../../components/PageContainer';
 import { useEffect } from 'react';
 // import { RxDoubleArrowLeft, RxDoubleArrowRight } from 'react-icons/rx';
 import { Outlet } from 'react-router-dom';

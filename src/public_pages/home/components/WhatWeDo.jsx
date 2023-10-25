@@ -1,5 +1,5 @@
 import React from 'react'
-import MyCard from '../../../globalComponents/MyCard'
+import MyCard from '../../../globalComponents/components/MyCard'
 
 import Image from "./../../../assets/carosolImage/1.jpg"
 
