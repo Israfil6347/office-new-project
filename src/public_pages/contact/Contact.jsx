@@ -35,7 +35,6 @@ function Contact() {
      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4'>
       <div>
         <MyCard >
-          return isLoaded ? (
           <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={11}>
            {serviceCenters.map((service_center) => (
         <Marker
