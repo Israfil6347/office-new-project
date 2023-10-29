@@ -3,7 +3,7 @@ import {  useState } from 'react';
 import erp_logo from '../assets/Logo/erp_logo.png';
 import { NavLink } from 'react-router-dom';
 import MyModal from '../globalComponents/components/MyModal';
-
+import LoginView from '../authentication/components/LoginView';
 
 
 function Footer() {
@@ -22,7 +22,7 @@ function Footer() {
         enter={'LR'}
         exit={'TB'}
       >
-        {/* <LoginView closeLoginWindow={closeLoginWindow} /> */}
+        <LoginView closeLoginWindow={closeLoginWindow} />
       </MyModal>
       <footer className="mt-auto text-onSurface bg-surface ">
         

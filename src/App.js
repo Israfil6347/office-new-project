@@ -23,15 +23,40 @@ import WomansActivity from "./public_pages/about/components/WomansActivity/Woman
 import DcCalender from "./public_pages/about/components/DcCalender/DcCalender";
 import Gallery from "./public_pages/about/components/Gallery/Gallery";
 import Publication from "./public_pages/about/components/Publication/Publication";
+import FrequentlyAskedQuestions from "./public_pages/faq/FrequentlyAskedQuestions";
+import ContainHeader from "./Admin/partials/ContainHeader";
+import Sidebar from "./Admin/partials/Sidebar";
+import AdminHeader from "./Admin/partials/AdminHeader";
+import AdminFooter from "./Admin/partials/AdminFooter";
+
 
 
 function App() {
 
   const location = useLocation();
 
-  console.log(location)
+  console.log(location.pathname)
   return (
-    <div className="relative flex min-h-screen flex-col bg-background font-sans-serif">
+    <>
+      {location.pathname ==='/admin' ? 
+      <div className="relative flex min-h-screen flex-col bg-background font-sans-serif">
+       <section className='sticky top-0 z-20 w-full bg-transparent transition-all duration-300'>
+            <div className="flex">
+               <Sidebar/>
+               <div className="w-full ">
+                <AdminHeader/>
+                
+  
+              </div>
+            </div>
+        </section>
+        <AdminFooter/>
+      </div>
+      
+      
+      : 
+       <div className="relative flex min-h-screen flex-col bg-background font-sans-serif">
+    
       <Header />
       {location.pathname === '/' ? '' : <Banner />}
 
@@ -56,10 +81,16 @@ function App() {
           <Route path="gallery" element={<Gallery />} />
           <Route path="publication" element={<Publication/>} />
         </Route>
+        <Route path="faqs" element={<FrequentlyAskedQuestions />} />
+        
       </Routes>
+
       <Footer />
 
     </div>
+      }
+   
+    </>
   );
 }
 
