@@ -21,13 +21,15 @@ function SidebarMenuItem({
         <li className="group flex items-center justify-center font-semibold hover:bg-background">
           <NavLink
             to={menuUrlSegment}
-            className={`p-2 w-full h-full ${location.pathname.includes(menuUrlSegment) &&
+            className={`p-2 w-full h-full ${
+              location.pathname.includes(menuUrlSegment) &&
               'text-primary font-bold bg-background'
-              }`}
+            }`}
           >
             <div
-              className={`flex items-center ${isSidebarMenuExpended && 'justify-center'
-                }`}
+              className={`flex items-center ${
+                isSidebarMenuExpended && 'justify-center'
+              }`}
             >
               <img
                 src={`data:image/png;base64, ${icon64}`}

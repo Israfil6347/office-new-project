@@ -2,7 +2,7 @@ import React from 'react';
 
 function SidebarMenus({ children }) {
   return (
-    <ul className="flex w-full flex-col divide-y text-onSurface">{children}</ul>
+    <ul className="flex md:flex justify-between w-full flex-col divide-y text-onSurface">{children}</ul>
   );
 }
 
