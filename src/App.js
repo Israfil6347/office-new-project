@@ -25,21 +25,25 @@ import Gallery from './public_pages/about/components/Gallery/Gallery';
 import Publication from './public_pages/about/components/Publication/Publication';
 import FrequentlyAskedQuestions from './public_pages/faq/FrequentlyAskedQuestions';
 import Admin from './public_pages/admin/Admin';
-import AdminHome from './public_pages/admin/components/AdminHome';
-import AdminService from './public_pages/admin/components/AdminService';
+import AdminHome from './public_pages/admin/components/home/AdminHome';
+import AdminService from './public_pages/admin/components/service/AdminService';
+import Pages from './public_pages/admin/components/Pages/pages';
 
 function App() {
   const location = useLocation();
 
-  console.log(location.pathname);
+  const urlArrays = location.pathname.split('/');
+
+  console.log(urlArrays[1]);
   return (
     <>
-      {location.pathname === '/admin' ? (
-        <div className="bg-background">
+      {urlArrays[1] === 'admin' ? (
+        <div className="relative flex min-h-screen flex-col bg-background font-sans-serif">
           <Routes>
             <Route path="admin" element={<Admin />}>
               <Route index element={<AdminHome />} />
               <Route path="service" element={<AdminService />} />
+              <Route path="pages" element={<Pages />} />
             </Route>
           </Routes>
         </div>

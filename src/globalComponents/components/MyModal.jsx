@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GiTireIronCross } from 'react-icons/gi';
+// import { GiTireIronCross } from 'react-icons/gi';
 
 function MyModal({
   show,
@@ -48,7 +48,7 @@ function MyModal({
           }}
         >
           <div className="absolute right-6 top-6 hover:scale-150 duration-150 transition-all text-white hover:text-red-300 text-2xl">
-            <GiTireIronCross onClick={() => onClose(false)} />
+            {/* <GiTireIronCross onClick={() => onClose(false)} /> */}
           </div>
           <motion.div
             className={`w-full overflow-hidden rounded-sm bg-surface shadow-sm
