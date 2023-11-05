@@ -164,23 +164,7 @@ const SidebarTemplate = ({ children }) => {
               <div className="w-2/3 p-3">
                 <div className="flex">
                   <div className="w-3/4">
-                    <div className="">
-                      <from>
-                        <label
-                          htmlFor=""
-                          className="mb-2 text-sm font-medium text-gray-900 sr-only"
-                        >
-                          Search
-                        </label>
-                        <div className="">
-                          <input
-                            type="search"
-                            className="block w-full p-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 "
-                            placeholder="search"
-                          />
-                        </div>
-                      </from>
-                    </div>
+                    <div className=""></div>
                   </div>
                   <div className="w-1/4">
                     <ul className="flex gap-10 justify-end p-3 mr-4">
