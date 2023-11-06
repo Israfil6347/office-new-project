@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function MyInputBox({
- id,
+  id,
   label,
   name,
   value,
@@ -30,7 +30,7 @@ function MyInputBox({
           type={inputType}
           disabled={disabled}
           value={value}
-          className={` disabled:bg-gray-50 h-10  disabled:opacity-90  disabled:border-gray-300 disabled:text-onSurface peer w-full rounded bg-surface transition-colors focus:border-primary ${
+          className={`h-10 border-primary border-[1px] p-2 disabled:bg-gray-50  disabled:opacity-90  disabled:border-gray-300 disabled:text-onSurface peer w-full rounded  transition-colors focus:border-secondary ${
             error ? 'ring-1 ring-error' : ''
           }`}
           onChange={onChangeHandler}

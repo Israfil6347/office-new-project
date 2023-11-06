@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import aboutImage1 from '../../../../assets/images/users/user.jpg';
-import MyButton from '../../../../globalComponents/components/MyButton';
 import { paginationData } from '../../../../globalComponents/data/paginationData';
 import MyDropdown from '../../../../globalComponents/components/MyDropdown';
+import MyButton from '../../../../globalComponents/components/MyButton';
+import aboutImage1 from '../../../../assets/images/users/user.jpg';
 
-function AdminService() {
+function LoanProduct() {
   const [paginationRequestObj, setPaginationRequestObj] = useState({
     ActiveStatus: -1,
     startRec: 0,
@@ -49,8 +49,8 @@ function AdminService() {
         <div className="bg-white p-6">
           <div className="flex justify-between">
             <div className="w-1/4 py-3">
-              <h2 className="text-2xl font-semibold">Our Service</h2>
-              <p className="text-sm">See information about all our service</p>
+              <h2 className="text-2xl font-semibold">Loans Product</h2>
+              <p className="text-sm">See information about all Loans Product</p>
             </div>
             <div className="w-1/4">
               <div className="">
@@ -133,7 +133,11 @@ function AdminService() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -159,9 +163,6 @@ function AdminService() {
                       </MyButton>
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>
@@ -195,7 +196,11 @@ function AdminService() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -216,14 +221,11 @@ function AdminService() {
                       Action
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
-                      <MyButton type="button" styleClass="p-2">
+                      <MyButton type="button" styleClass="p-2 ">
                         <i class="fa-solid fa-eye"></i>
                       </MyButton>
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>
@@ -257,7 +259,11 @@ function AdminService() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -283,9 +289,6 @@ function AdminService() {
                       </MyButton>
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>
@@ -319,7 +322,11 @@ function AdminService() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -345,9 +352,6 @@ function AdminService() {
                       </MyButton>
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>
@@ -381,7 +385,11 @@ function AdminService() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -407,9 +415,6 @@ function AdminService() {
                       </MyButton>
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>
@@ -443,7 +448,11 @@ function AdminService() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -469,9 +478,6 @@ function AdminService() {
                       </MyButton>
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>
@@ -505,7 +511,11 @@ function AdminService() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -531,9 +541,6 @@ function AdminService() {
                       </MyButton>
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>
@@ -567,7 +574,11 @@ function AdminService() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -593,9 +604,6 @@ function AdminService() {
                       </MyButton>
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>
@@ -629,7 +637,11 @@ function AdminService() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -655,9 +667,6 @@ function AdminService() {
                       </MyButton>
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>
@@ -709,4 +718,4 @@ function AdminService() {
   );
 }
 
-export default AdminService;
+export default LoanProduct;

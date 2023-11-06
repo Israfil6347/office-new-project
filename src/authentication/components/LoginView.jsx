@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import MyButton from '../../globalComponents/components/MyButton';
 import MyTextInput from '../../globalComponents/components/MyTextInput';
-import logoIcon from '../../assets/Logo/logo.png'
+import logoIcon from '../../assets/Logo/logo.png';
 import MyPasswordInput from '../../globalComponents/components/MyPasswordInput';
+import MyInputBox from '../../globalComponents/components/MyInputBox';
 
-function LoginView({closeLoginWindow}) {
+function LoginView({ closeLoginWindow }) {
   return (
     <div>
-
-          <div className="relative w-full overflow-hidden rounded-sm bg-surface py-6 px-6 shadow-sm md:px-10 lg:px-20">
+      <div className="relative w-full overflow-hidden rounded-sm bg-surface py-6 px-6 shadow-sm md:px-10 lg:px-20">
         <MyButton
           onClick={() => {
             closeLoginWindow();
@@ -35,7 +35,7 @@ function LoginView({closeLoginWindow}) {
             //   handleLoginRequest();
             // }}
           >
-            <MyTextInput
+            <MyInputBox
               label="User Id/Email"
               // value={loginViewInputState.userName}
               leftIcon={<i className="fa-solid fa-at"></i>}
@@ -109,11 +109,8 @@ function LoginView({closeLoginWindow}) {
           />
         </div>
       </div>
-      
     </div>
-  )
+  );
 }
 
-export default LoginView
-
-
+export default LoginView;

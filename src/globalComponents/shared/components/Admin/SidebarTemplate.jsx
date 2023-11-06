@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 // import { RxDoubleArrowLeft, RxDoubleArrowRight } from 'react-icons/rx';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import Logo from './../../../../assets/Logo/white_logo.png';
 import user from '../../../../assets/images/users/user.jpg';
 import { useState } from 'react';
@@ -9,11 +9,13 @@ import { useState } from 'react';
 const SidebarTemplate = ({ children }) => {
   const [openNavbar, setOpenNavbarHandler] = useState(false);
 
-  console.log(openNavbar);
-
   const openNavbarHandler = () => {
     setOpenNavbarHandler(!openNavbar);
   };
+
+  const currentPath = useLocation().pathname;
+
+  console.log(currentPath);
 
   return (
     <>
@@ -24,7 +26,7 @@ const SidebarTemplate = ({ children }) => {
               openNavbar ? 'w-20 ' : 'w-72'
             }`}
           >
-            <div className="flex gap-2 p-5 border-b-[1px] ">
+            <div className="flex gap-2 p-4 border-b-[1px] ">
               <div className="">
                 <img className="h-8" src={Logo} alt="header logo" />
               </div>
@@ -34,7 +36,7 @@ const SidebarTemplate = ({ children }) => {
                 </h2>
               </div>
             </div>
-            <div className="flex gap-2 p-5 border-b-[1px] ">
+            <div className="flex gap-2 p-4 border-b-[1px] ">
               <div className="">
                 <img
                   className="h-8 w-8 bg-white rounded-full"
@@ -49,96 +51,107 @@ const SidebarTemplate = ({ children }) => {
               </div>
             </div>
 
-            <div className="text-secondary p-4">
-              <ul className="">
-                <li className="py-2">
-                  <NavLink className="" to="">
+            <div className="text-secondary ">
+              <ul className="p-4">
+                <NavLink to="">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-regular fa-house px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       Home
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="pages">
+                  </li>
+                </NavLink>
+                <NavLink to="pages">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-solid fa-briefcase px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       Pages
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="">
+                  </li>
+                </NavLink>
+                <NavLink
+                  to="service"
+                  className={currentPath === '/admin/service' ? 'active' : ''}
+                >
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
+                    <i class="fa-solid fa-briefcase px-3"></i>
+                    <span className={`${openNavbar ? 'hidden' : ''}`}>
+                      Our Service
+                    </span>
+                  </li>
+                </NavLink>
+                <NavLink to="deposit-product">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-solid fa-hand-holding-hand px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       Deposit Product
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="">
+                  </li>
+                </NavLink>
+                <NavLink to="loans-product">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-solid fa-sack-dollar px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       Loans Product
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="">
+                  </li>
+                </NavLink>
+                <NavLink to="download">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-solid fa-piggy-bank px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       Download
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="">
+                  </li>
+                </NavLink>
+                <NavLink to="notice">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-regular fa-address-card px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       Notice
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="">
+                  </li>
+                </NavLink>
+                <NavLink to="slider-images">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-solid fa-person-circle-question px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       Slider Images
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="">
+                  </li>
+                </NavLink>
+                <NavLink to="user">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-solid fa-address-book px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       User
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="">
+                  </li>
+                </NavLink>
+                <NavLink to="gallery">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-solid fa-address-book px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       Gallery Images
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="">
+                  </li>
+                </NavLink>
+                <NavLink to="leaders">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
                     <i class="fa-solid fa-address-book px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       leaders
                     </span>
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink to="">
-                    <i class="fa-solid fa-address-book px-3"></i>
+                  </li>
+                </NavLink>
+                <NavLink to="setting">
+                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
+                    <i class="fa-solid fa-gear px-3"></i>
                     <span className={`${openNavbar ? 'hidden' : ''}`}>
                       Account setting
                     </span>
-                  </NavLink>
-                </li>
+                  </li>
+                </NavLink>
               </ul>
             </div>
           </div>

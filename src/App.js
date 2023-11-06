@@ -27,7 +27,17 @@ import FrequentlyAskedQuestions from './public_pages/faq/FrequentlyAskedQuestion
 import Admin from './public_pages/admin/Admin';
 import AdminHome from './public_pages/admin/components/home/AdminHome';
 import AdminService from './public_pages/admin/components/service/AdminService';
-import Pages from './public_pages/admin/components/Pages/pages';
+import Pages from './public_pages/admin/components/Pages/Pages';
+import DepositProduct from './public_pages/admin/components/deposit product/DepositProduct';
+import LoanProduct from './public_pages/admin/components/loan product/LoanProduct';
+import Download from './public_pages/admin/components/download/Download';
+import SliderImages from './public_pages/admin/components/slider_images/SliderImages';
+import Notice from './public_pages/admin/components/notice/Notice';
+
+import GalleryImage from './public_pages/admin/components/gallery/GalleryImage';
+import Leaders from './public_pages/admin/components/leaders/Leaders';
+import Setting from './public_pages/admin/components/setting/Setting';
+import Users from './public_pages/admin/components/user/Users';
 
 function App() {
   const location = useLocation();
@@ -44,6 +54,15 @@ function App() {
               <Route index element={<AdminHome />} />
               <Route path="service" element={<AdminService />} />
               <Route path="pages" element={<Pages />} />
+              <Route path="deposit-product" element={<DepositProduct />} />
+              <Route path="loans-product" element={<LoanProduct />} />
+              <Route path="download" element={<Download />} />
+              <Route path="notice" element={<Notice />} />
+              <Route path="slider-images" element={<SliderImages />} />
+              <Route path="user" element={<Users />} />
+              <Route path="gallery" element={<GalleryImage />} />
+              <Route path="leaders" element={<Leaders />} />
+              <Route path="setting" element={<Setting />} />
             </Route>
           </Routes>
         </div>

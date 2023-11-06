@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function MyTextInput({
-   id,
+  id,
   inputRef,
   fullWidth = true,
   label,
@@ -16,10 +16,10 @@ function MyTextInput({
   error,
   disabled,
   autoFocus,
-  onChangeHandler,
+  onChangeHandler
 }) {
   return (
-      <div
+    <div
       className={`${
         fullWidth ? 'block w-full' : 'inline-block'
       } text-onSurface`}
@@ -35,7 +35,7 @@ function MyTextInput({
           disabled={isView ? true : disabled}
           value={value}
           defaultValue={defaultValue}
-          className={`peer form-input rounded border h-12 ${
+          className={`peer form-input rounded border-primary border-[1px] h-10 ${
             isView ? 'border-none' : 'border-onBorder'
           } bg-surface ${
             leftIcon && 'pl-10'
@@ -86,8 +86,7 @@ function MyTextInput({
 
       {error ? <span className="text-xs text-error">{error}</span> : null}
     </div>
-  )
+  );
 }
 
-export default MyTextInput
-
+export default MyTextInput;

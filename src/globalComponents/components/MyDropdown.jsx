@@ -20,7 +20,7 @@ function MyDropdown({
           id={name}
           disabled={disabled}
           value={value}
-          className={` disabled:bg-gray-50 disabled:opacity-90 disabled:border-gray-300 disabled:text-onSurface peer w-full rounded bg-surface transition-colors focus:border-primary ${
+          className={` h-10 border-onBackground disabled:bg-gray-50 disabled:opacity-90 disabled:border-gray-300 disabled:text-onSurface peer w-full rounded bg-surface transition-colors focus:border-primary ${
             error ? 'ring-1 ring-error' : ''
           }`}
           onChange={selectionDownHandler}

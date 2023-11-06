@@ -4,7 +4,7 @@ function AdminHome() {
   return (
     <div className="p-6 grid grid-cols-4 gap-4 ">
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>Page</p>
         </div>
@@ -13,7 +13,7 @@ function AdminHome() {
         </div>
       </div>
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>Deposit product</p>
         </div>
@@ -22,7 +22,7 @@ function AdminHome() {
         </div>
       </div>
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>Loan Product</p>
         </div>
@@ -31,7 +31,7 @@ function AdminHome() {
         </div>
       </div>
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>User</p>
         </div>
@@ -40,7 +40,7 @@ function AdminHome() {
         </div>
       </div>
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>Notice</p>
         </div>
@@ -49,7 +49,7 @@ function AdminHome() {
         </div>
       </div>
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>Gallery images</p>
         </div>
@@ -58,7 +58,7 @@ function AdminHome() {
         </div>
       </div>
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>Slider image</p>
         </div>
@@ -67,7 +67,7 @@ function AdminHome() {
         </div>
       </div>
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>Service</p>
         </div>
@@ -76,7 +76,7 @@ function AdminHome() {
         </div>
       </div>
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>Notice</p>
         </div>
@@ -85,7 +85,7 @@ function AdminHome() {
         </div>
       </div>
       <div className="p-4 bg-white flex justify-between rounded-lg ">
-        <div className="flex flex-col items-center justify-center">
+        <div className="">
           <h2 className="text-3xl">150</h2>
           <p>Notice</p>
         </div>
