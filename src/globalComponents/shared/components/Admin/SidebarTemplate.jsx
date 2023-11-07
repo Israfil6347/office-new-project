@@ -8,14 +8,67 @@ import { useState } from 'react';
 
 const SidebarTemplate = ({ children }) => {
   const [openNavbar, setOpenNavbarHandler] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
 
   const openNavbarHandler = () => {
     setOpenNavbarHandler(!openNavbar);
   };
+  <i class="fa-regular fa-image"></i>;
+  const items = [
+    { label: 'Home', link: '/admin/home', icon: 'fa-solid fa-house' },
+    { label: 'Pages', link: '/admin/pages', icon: 'fa-brands fa-page4' },
+    {
+      label: 'Our Service',
+      link: '/admin/service',
+      icon: 'fa-solid fa-person-digging'
+    },
+    {
+      label: 'Deposit Product',
+      link: '/admin/deposit-product',
+      icon: 'fa-solid fa-piggy-bank'
+    },
+    {
+      label: 'Loans Product',
+      link: '/admin/loans-product',
+      icon: 'fa-solid fa-sack-dollar'
+    },
+    {
+      label: 'Download',
+      link: '/admin/download',
+      icon: 'fa-solid fa-download'
+    },
+    { label: 'Notice', link: '/admin/notice', icon: 'fa-solid fa-flag' },
+    {
+      label: 'Slider Images',
+      link: '/admin/slider-images',
+      icon: 'fa-regular fa-image'
+    },
 
-  const currentPath = useLocation().pathname;
+    { label: 'User', link: '/admin/user', icon: 'fa-solid fa-user' },
+    {
+      label: 'Gallery Images',
+      link: '/admin/gallery',
+      icon: 'fa-solid fa-photo-film'
+    },
+    {
+      label: 'Leaders',
+      link: '/admin/leaders',
+      icon: 'fa-solid fa-user-graduate'
+    },
+    {
+      label: 'Account setting',
+      link: '/admin/setting',
+      icon: 'fa-solid fa-gears'
+    }
+    // Add more items as needed
+  ];
 
-  console.log(currentPath);
+  const handleItemClick = (item) => {
+    setActiveItem(item);
+  };
+
+  console.log(activeItem);
+  console.log(items);
 
   return (
     <>
@@ -52,107 +105,26 @@ const SidebarTemplate = ({ children }) => {
             </div>
 
             <div className="text-secondary ">
-              <ul className="p-4">
-                <NavLink to="">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-regular fa-house px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Home
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="pages">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-briefcase px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Pages
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink
-                  to="service"
-                  className={currentPath === '/admin/service' ? 'active' : ''}
-                >
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-briefcase px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Our Service
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="deposit-product">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-hand-holding-hand px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Deposit Product
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="loans-product">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-sack-dollar px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Loans Product
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="download">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-piggy-bank px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Download
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="notice">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-regular fa-address-card px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Notice
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="slider-images">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-person-circle-question px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Slider Images
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="user">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-address-book px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      User
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="gallery">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-address-book px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Gallery Images
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="leaders">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-address-book px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      leaders
-                    </span>
-                  </li>
-                </NavLink>
-                <NavLink to="setting">
-                  <li className="py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded">
-                    <i class="fa-solid fa-gear px-3"></i>
-                    <span className={`${openNavbar ? 'hidden' : ''}`}>
-                      Account setting
-                    </span>
-                  </li>
-                </NavLink>
-              </ul>
+              <nav>
+                <ul className="p-4">
+                  {items.map((item, index) => (
+                    <NavLink to={item.link}>
+                      <li
+                        key={index}
+                        className={`py-2 hover:bg-secondary hover:shadow-sm hover:text-black hover:rounded ${
+                          item === activeItem ? 'active' : ''
+                        }`}
+                        onClick={() => handleItemClick(item)}
+                      >
+                        <i className={`p-2 ${item.icon}`}></i>
+                        <span className={`${openNavbar ? 'hidden' : ''}`}>
+                          {item.label}
+                        </span>
+                      </li>
+                    </NavLink>
+                  ))}
+                </ul>
+              </nav>
             </div>
           </div>
         </div>

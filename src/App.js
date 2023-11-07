@@ -51,7 +51,7 @@ function App() {
         <div className="relative flex min-h-screen flex-col bg-background font-sans-serif">
           <Routes>
             <Route path="admin" element={<Admin />}>
-              <Route index element={<AdminHome />} />
+              <Route path="home" element={<AdminHome />} />
               <Route path="service" element={<AdminService />} />
               <Route path="pages" element={<Pages />} />
               <Route path="deposit-product" element={<DepositProduct />} />
