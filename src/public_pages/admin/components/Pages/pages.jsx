@@ -12,7 +12,8 @@ import 'react-quill/dist/quill.snow.css';
 import MyTextInput from '../../../../globalComponents/components/MyTextInput';
 import MyImageInput from '../../../../globalComponents/components/MyImageInput';
 function Pages() {
-  const [openDialog, setOpenDialog] = useState(false);
+  const [openEditDialog, setOpenEditDialog] = useState(false);
+  const [OpenViewDialog, setOpenViewDialog] = useState(false);
   const [paginationRequestObj, setPaginationRequestObj] = useState({
     ActiveStatus: -1,
     startRec: 0,
@@ -53,16 +54,17 @@ function Pages() {
   // };
   return (
     <div>
+      {/* Edit dialogs Open start */}
       <MyModal
-        show={openDialog}
+        show={openEditDialog}
         size="M"
         onClose={() => {
-          setOpenDialog(false);
+          setOpenEditDialog(false);
         }}
       >
         <MyDialogueView
           onCancel={() => {
-            setOpenDialog(false);
+            setOpenEditDialog(false);
           }}
           dialogueHeader={
             <div className="header flex   bg-background p-6 text-2xl font-bold text-onSurface">
@@ -81,65 +83,170 @@ function Pages() {
             </div>
           }
         >
-          <div className="p-8 px-16 grid grid-cols-1 gap-6 overflow-y-scroll ">
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <MyImageInput
+          <div
+            className="scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-200  w-full overflow-y-scroll rounded-lg p-6 md:p-16 "
+            style={{ maxHeight: window.innerHeight - 400 }}
+          >
+            <div className="grid grid-cols-1 gap-6">
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <MyImageInput
+                    disabled={false}
+                    label="Applicant Photo"
+                    name="ApplicantPhoto"
+                    // value={personSectionState.ApplicantPhoto}
+                    required={true}
+                    // error={personSectionState.Errors.ApplicantPhoto}
+                    heightClass="h-32"
+                    onChangeHandler={(fieldName, fieldValue) => {
+                      // updatePersonSectionState(fieldName, fieldValue);
+                    }}
+                  />
+                </div>
+                <div className="flex items-center  ">
+                  <img src={Logo} className="h-35 w-35 " alt="img not found" />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
+                <MyInputBox
+                  id="title"
+                  label="Title"
+                  name="Title"
+                  inputType="text"
                   disabled={false}
-                  label="Applicant Photo"
-                  name="ApplicantPhoto"
-                  // value={personSectionState.ApplicantPhoto}
-                  required={true}
-                  // error={personSectionState.Errors.ApplicantPhoto}
-                  heightClass="h-32"
-                  onChangeHandler={(fieldName, fieldValue) => {
-                    // updatePersonSectionState(fieldName, fieldValue);
-                  }}
+                />
+                <MyInputBox
+                  id="Order"
+                  label="Order"
+                  name="Order"
+                  inputType="number"
+                  disabled={false}
+                />
+
+                <MyInputBox
+                  id="slug"
+                  label="Slug"
+                  name="slug"
+                  inputType="text"
+                  disabled={false}
                 />
               </div>
-              <div className="flex items-center  ">
-                <img src={Logo} className="h-35 w-35 " alt="img not found" />
+
+              <div>
+                <ReactQuill
+                  theme="snow"
+                  id="Description"
+                  placeholder="Description"
+                  name=""
+                />
               </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
-              <MyInputBox
-                id="title"
-                label="Title"
-                name="Title"
-                inputType="text"
-                disabled={false}
-              />
-              <MyInputBox
-                id="Order"
-                label="Order"
-                name="Order"
-                inputType="number"
-                disabled={false}
-              />
-
-              <MyInputBox
-                id="slug"
-                label="Slug"
-                name="slug"
-                inputType="text"
-                disabled={false}
-              />
-            </div>
-
-            <div>
-              <ReactQuill theme="snow" id="Description" />
             </div>
           </div>
         </MyDialogueView>
       </MyModal>
-      <div className="p-6 grid grid-cols-1 gap-4 ">
-        <div className="bg-white p-6">
-          <div className="flex justify-between">
-            <div className="w-1/4 py-3">
-              <h2 className="text-2xl font-semibold">Pages</h2>
-              <p className="text-sm">See information about all pages</p>
+      {/* Edit dialogs open close  */}
+      {/* View dialogs Open start */}
+      <MyModal
+        show={OpenViewDialog}
+        size="M"
+        onClose={() => {
+          setOpenViewDialog(false);
+        }}
+      >
+        <MyDialogueView
+          onCancel={() => {
+            setOpenViewDialog(false);
+          }}
+          dialogueHeader={
+            <div className="header flex   bg-background p-6 text-2xl font-bold text-onSurface">
+              <img src={Logo} alt="" width="40" height="40" />
+              <p className="ml-2 antialiased">Page</p>
             </div>
-            <div className="w-1/4">
+          }
+          dialogueFooter={
+            <div className="flex  justify-end gap-4 bg-background p-4 ">
+              <MyButton
+                type="button"
+                name="Ok"
+                label="Ok"
+                styleClass="w-1/2 rounded border bg-primary p-2 font-semibold uppercase text-onPrimary disabled:bg-gray-400 md:w-1/4"
+                onClick={() => {
+                  setOpenViewDialog(false);
+                }}
+              ></MyButton>
+            </div>
+          }
+        >
+          <div
+            className="scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-200  w-full overflow-y-scroll rounded-lg p-6 md:p-16 "
+            style={{ maxHeight: window.innerHeight - 400 }}
+          >
+            <div className="grid grid-cols-1 gap-6">
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <MyImageInput
+                    disabled={false}
+                    label="Applicant Photo"
+                    name="ApplicantPhoto"
+                    // value={personSectionState.ApplicantPhoto}
+                    required={true}
+                    // error={personSectionState.Errors.ApplicantPhoto}
+                    heightClass="h-32"
+                    onChangeHandler={(fieldName, fieldValue) => {
+                      // updatePersonSectionState(fieldName, fieldValue);
+                    }}
+                  />
+                </div>
+                <div className="flex items-center  ">
+                  <img src={Logo} className="h-35 w-35 " alt="img not found" />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
+                <MyInputBox
+                  id="title"
+                  label="Title"
+                  name="Title"
+                  inputType="text"
+                  disabled={false}
+                />
+                <MyInputBox
+                  id="Order"
+                  label="Order"
+                  name="Order"
+                  inputType="number"
+                  disabled={false}
+                />
+
+                <MyInputBox
+                  id="slug"
+                  label="Slug"
+                  name="slug"
+                  inputType="text"
+                  disabled={false}
+                />
+              </div>
+
+              <div>
+                <ReactQuill
+                  theme="snow"
+                  id="Description"
+                  placeholder="Description"
+                  name=""
+                />
+              </div>
+            </div>
+          </div>
+        </MyDialogueView>
+      </MyModal>
+      {/* View dialogs open close  */}
+      <div className="grid grid-cols-1 gap-4 p-4 ">
+        <div className="bg-white p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
+            <div className="">
+              <h2 className="text-2xl font-semibold">Our Service</h2>
+              <p className="text-sm">See information about all Loans Product</p>
+            </div>
+            <div className="  ">
               <div className="">
                 <from>
                   <label
@@ -191,13 +298,13 @@ function Pages() {
               </thead>
 
               <tbody className="flex-1  bg-backgroundVariant sm:flex-none ">
-                <tr className="flex h-16 w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
                   <td className="border border-gray-200 p-2 text-left">
                     <label className="p-2 md:hidden md:p-0" for="">
                       Title
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
-                      About
+                      About Us
                     </p>
                   </td>
                   <td className="border border-gray-200 p-2 text-left">
@@ -205,7 +312,7 @@ function Pages() {
                       Slug
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
-                      about
+                      About Us
                     </p>
                   </td>
                   <td className="border border-gray-200 p-2 text-left">
@@ -220,7 +327,149 @@ function Pages() {
                     </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <div className="w-14 h-14 rounded-full">
-                        <img src={aboutImage1} alt="img not found" />
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
+                      </div>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Status
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <MyButton
+                        type="button"
+                        label="published"
+                        styleClass="p-2"
+                      ></MyButton>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Action
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
+                      <MyButton type="button" styleClass="p-2 ">
+                        <i class="fa-solid fa-eye"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                    </p>
+                  </td>
+                </tr>
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Title
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      The pioneer of the Credit Union
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Slug
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      The pioneer of the Credit Union
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Order
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Image
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <div className="w-14 h-14 rounded-full">
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
+                      </div>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Status
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <MyButton
+                        type="button"
+                        label="published"
+                        styleClass="p-2"
+                      ></MyButton>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Action
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
+                      <MyButton
+                        type="button"
+                        styleClass="p-2"
+                        onClick={() => {
+                          setOpenViewDialog(true);
+                        }}
+                      >
+                        <i class="fa-solid fa-eye"></i>
+                      </MyButton>
+                      <MyButton
+                        type="button"
+                        styleClass="p-2"
+                        onClick={() => {
+                          setOpenEditDialog(true);
+                        }}
+                      >
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                    </p>
+                  </td>
+                </tr>
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700 my-3 md:my-0 md:table-row">
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Title
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      President Message
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Slug
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      President Message
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Order
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Image
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <div className="w-14 h-14 rounded-full">
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
                       </div>
                     </p>
                   </td>
@@ -244,13 +493,260 @@ function Pages() {
                       <MyButton type="button" styleClass="p-2">
                         <i class="fa-solid fa-eye"></i>
                       </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                    </p>
+                  </td>
+                </tr>
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700 my-3 md:my-0 md:table-row">
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Title
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      Our Story
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Slug
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      Our Story
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Order
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Image
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <div className="w-14 h-14 rounded-full">
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
+                      </div>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Status
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
                       <MyButton
                         type="button"
+                        label="published"
                         styleClass="p-2"
-                        onClick={() => {
-                          setOpenDialog(true);
-                        }}
-                      >
+                      ></MyButton>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Action
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-eye"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                    </p>
+                  </td>
+                </tr>
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700 my-3 md:my-0 md:table-row">
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Title
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      Mission & Vision
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Slug
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      Mission & Vision
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Order
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Image
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <div className="w-14 h-14 rounded-full">
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
+                      </div>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Status
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <MyButton
+                        type="button"
+                        label="published"
+                        styleClass="p-2"
+                      ></MyButton>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Action
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-eye"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                    </p>
+                  </td>
+                </tr>
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700 my-3 md:my-0 md:table-row">
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Title
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      Core Values
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Slug
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      Core Values
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Order
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Image
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <div className="w-14 h-14 rounded-full">
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
+                      </div>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Status
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <MyButton
+                        type="button"
+                        label="published"
+                        styleClass="p-2"
+                      ></MyButton>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Action
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-eye"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                    </p>
+                  </td>
+                </tr>
+
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Title
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      About Us
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Slug
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      About Us
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Order
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Image
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <div className="w-14 h-14 rounded-full">
+                        <img
+                          src={aboutImage1}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
+                      </div>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Status
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <MyButton
+                        type="button"
+                        label="published"
+                        styleClass="p-2"
+                      ></MyButton>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Action
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-eye"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
                         <i class="fa-regular fa-pen-to-square"></i>
                       </MyButton>
                     </p>

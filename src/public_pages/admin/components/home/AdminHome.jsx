@@ -2,7 +2,7 @@ import React from 'react';
 
 function AdminHome() {
   return (
-    <div className="p-6 grid grid-cols-4 gap-4 ">
+    <div className="p-6 grid grid-cols-1 md:grid-cols-4 gap-4 ">
       <div className="p-4 bg-white flex justify-between rounded-lg ">
         <div className="">
           <h2 className="text-3xl">150</h2>

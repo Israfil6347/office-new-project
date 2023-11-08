@@ -6,7 +6,7 @@ import Logo from './../../../../assets/Logo/white_logo.png';
 import user from '../../../../assets/images/users/user.jpg';
 import { useState } from 'react';
 
-const SidebarTemplate = ({ children }) => {
+const ResSidebarTemplate = ({ children }) => {
   const [openNavbar, setOpenNavbarHandler] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
 
@@ -73,10 +73,70 @@ const SidebarTemplate = ({ children }) => {
   return (
     <>
       <div className="flex">
-        <div className={`${openNavbar ? 'hidden md:block' : ''}`}>
+        <div className="w-full relative  lg:static float-right md:order-2">
+          <div className="top-0 ">
+            <div className="flex bg-white border-b-2">
+              <div className="w-1/3 p-3">
+                <ul className="flex p-3  gap-6">
+                  <li className={`${openNavbar ? '' : 'hidden'}`}>
+                    <div className="cursor-pointer" onClick={openNavbarHandler}>
+                      <i class="fa-solid fa-bars"></i>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="admin">Home</a>
+                  </li>
+                  <li>
+                    <a href="">Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="w-2/3 p-3">
+                <div className="flex">
+                  <div className="w-3/4">
+                    <div className=""></div>
+                  </div>
+                  <div className="w-1/4">
+                    <ul className="flex gap-10 justify-end p-3 mr-4">
+                      <li>
+                        <i class="fa-solid fa-bell"></i>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div
-            className={`  bg-onBackground h-screen transition duration-[2000ms] ${
-              openNavbar ? 'md:w-20 ' : 'w-full md:w-72'
+            className="scrollbar-width: thin overflow-hidden overflow-x-scroll overflow-y-scroll md:border"
+            style={
+              ({ maxWidth: window.innerWidth - 10 },
+              { height: window.innerHeight - 140 })
+            }
+          >
+            <Outlet />
+          </div>
+          <div className="mt-auto md:fixed bottom-0 w-full">
+            <footer className="bg-surface  text-onSurface">
+              <div className=" flex flex-col p-3 py-5 ">
+                <p className="text-sm">© 2022 . All Rights Reserved.</p>
+                <p className="text-sm">Powered by Dhaka Credit ICT Squad.</p>
+              </div>
+            </footer>
+          </div>
+        </div>
+        <div
+          className={`absolute lg:static lg:float-left md:order-1  ${
+            openNavbar ? 'hidden md:block' : ''
+          }`}
+        >
+          <div
+            className={`bg-onBackground h-screen ${
+              openNavbar ? 'w-20 ' : 'w-72 '
             }`}
           >
             <div className="flex justify-between items-center w-full border-b-[1px] p-4 ">
@@ -135,61 +195,9 @@ const SidebarTemplate = ({ children }) => {
             </div>
           </div>
         </div>
-        <div className="w-full">
-          <div className="top-0 ">
-            <div className="flex bg-white border-b-2">
-              <div className="w-1/3 p-3">
-                <ul className="flex p-3  gap-6">
-                  <li className={`${openNavbar ? '' : 'hidden'}`}>
-                    <div className="cursor-pointer" onClick={openNavbarHandler}>
-                      <i class="fa-solid fa-bars"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="admin">Home</a>
-                  </li>
-                  <li>
-                    <a href="">Contact</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="w-2/3 p-3">
-                <div className="flex">
-                  <div className="w-3/4">
-                    <div className=""></div>
-                  </div>
-                  <div className="w-1/4">
-                    <ul className="flex gap-10 justify-end p-3 mr-4">
-                      <li>
-                        <i class="fa-brands fa-rocketchat"></i>
-                      </li>
-                      <li>
-                        <i class="fa-solid fa-bell"></i>
-                      </li>
-                      <li>
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="">
-            <Outlet />
-          </div>
-          <div className="mt-auto fixed bottom-0 w-full">
-            <footer className="bg-surface  text-onSurface">
-              <div className=" flex flex-col p-3 py-5 ">
-                <p className="text-sm">© 2022 . All Rights Reserved.</p>
-                <p className="text-sm">Powered by Dhaka Credit ICT Squad.</p>
-              </div>
-            </footer>
-          </div>
-        </div>
       </div>
     </>
   );
 };
 
-export default SidebarTemplate;
+export default ResSidebarTemplate;
