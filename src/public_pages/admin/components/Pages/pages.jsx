@@ -11,6 +11,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import MyTextInput from '../../../../globalComponents/components/MyTextInput';
 import MyImageInput from '../../../../globalComponents/components/MyImageInput';
+
 function Pages() {
   const [openEditDialog, setOpenEditDialog] = useState(false);
   const [OpenViewDialog, setOpenViewDialog] = useState(false);
@@ -131,6 +132,14 @@ function Pages() {
                   disabled={false}
                 />
               </div>
+              <div>
+                <ReactQuill
+                  theme="snow"
+                  id="Sort Description"
+                  placeholder="Sort Description"
+                  name=""
+                />
+              </div>
 
               <div>
                 <ReactQuill
@@ -225,6 +234,14 @@ function Pages() {
                   disabled={false}
                 />
               </div>
+              <div>
+                <ReactQuill
+                  theme="snow"
+                  id="Sort Description"
+                  placeholder="Sort Description"
+                  name=""
+                />
+              </div>
 
               <div>
                 <ReactQuill
@@ -242,11 +259,18 @@ function Pages() {
       <div className="grid grid-cols-1 gap-4 p-4 ">
         <div className="bg-white p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
-            <div className="">
-              <h2 className="text-2xl font-semibold">Our Service</h2>
+            <div className="flex flex-col ">
+              <h2 className="text-2xl font-semibold">Our Pages</h2>
               <p className="text-sm">See information about all Loans Product</p>
             </div>
-            <div className="  ">
+            <div className="m-2 ">
+              <div className="flex justify-end mb-4">
+                <MyButton type="button" styleClass="p-2">
+                  <i class="fa-solid fa-plus">
+                    <span>Add </span>
+                  </i>
+                </MyButton>
+              </div>
               <div className="">
                 <from>
                   <label
@@ -298,69 +322,6 @@ function Pages() {
               </thead>
 
               <tbody className="flex-1  bg-backgroundVariant sm:flex-none ">
-                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
-                  <td className="border border-gray-200 p-2 text-left">
-                    <label className="p-2 md:hidden md:p-0" for="">
-                      Title
-                    </label>
-                    <p className="p-2 font-semibold md:p-0 md:font-normal">
-                      About Us
-                    </p>
-                  </td>
-                  <td className="border border-gray-200 p-2 text-left">
-                    <label className="p-2 md:hidden md:p-0" for="">
-                      Slug
-                    </label>
-                    <p className="p-2 font-semibold md:p-0 md:font-normal">
-                      About Us
-                    </p>
-                  </td>
-                  <td className="border border-gray-200 p-2 text-left">
-                    <label className="p-2 md:hidden md:p-0" for="">
-                      Order
-                    </label>
-                    <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
-                  </td>
-                  <td className="border border-gray-200 p-2 text-left">
-                    <label className="p-2 md:hidden md:p-0" for="">
-                      Image
-                    </label>
-                    <p className="p-2 font-semibold md:p-0 md:font-normal">
-                      <div className="w-14 h-14 rounded-full">
-                        <img
-                          src={aboutImage1}
-                          className="rounded-full"
-                          alt="img not found"
-                        />
-                      </div>
-                    </p>
-                  </td>
-                  <td className="border border-gray-200 p-2 text-left">
-                    <label className="p-2 md:hidden md:p-0" for="">
-                      Status
-                    </label>
-                    <p className="p-2 font-semibold md:p-0 md:font-normal">
-                      <MyButton
-                        type="button"
-                        label="published"
-                        styleClass="p-2"
-                      ></MyButton>
-                    </p>
-                  </td>
-                  <td className="border border-gray-200 p-2 text-left">
-                    <label className="p-2 md:hidden md:p-0" for="">
-                      Action
-                    </label>
-                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
-                      <MyButton type="button" styleClass="p-2 ">
-                        <i class="fa-solid fa-eye"></i>
-                      </MyButton>
-                      <MyButton type="button" styleClass="p-2">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                      </MyButton>
-                    </p>
-                  </td>
-                </tr>
                 <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
                   <td className="border border-gray-200 p-2 text-left">
                     <label className="p-2 md:hidden md:p-0" for="">
@@ -432,6 +393,9 @@ function Pages() {
                         }}
                       >
                         <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-trash-can"></i>
                       </MyButton>
                     </p>
                   </td>

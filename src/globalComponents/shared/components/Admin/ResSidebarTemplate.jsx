@@ -6,6 +6,59 @@ import Logo from './../../../../assets/Logo/white_logo.png';
 import user from '../../../../assets/images/users/user.jpg';
 import { useState } from 'react';
 
+const AccordionAnimation = {
+  closed: { opacity: 1, width: 300 },
+  open: { opacity: 1, width: 'auto' }
+};
+const items = [
+  { label: 'Home', link: '/admin/home', icon: 'fa-solid fa-house' },
+  { label: 'Pages', link: '/admin/pages', icon: 'fa-brands fa-page4' },
+  {
+    label: 'Our Service',
+    link: '/admin/service',
+    icon: 'fa-solid fa-person-digging'
+  },
+  {
+    label: 'Deposit Product',
+    link: '/admin/deposit-product',
+    icon: 'fa-solid fa-piggy-bank'
+  },
+  {
+    label: 'Loans Product',
+    link: '/admin/loans-product',
+    icon: 'fa-solid fa-sack-dollar'
+  },
+  {
+    label: 'Download',
+    link: '/admin/download',
+    icon: 'fa-solid fa-download'
+  },
+  { label: 'Notice', link: '/admin/notice', icon: 'fa-solid fa-flag' },
+  {
+    label: 'Slider Images',
+    link: '/admin/slider-images',
+    icon: 'fa-regular fa-image'
+  },
+
+  { label: 'User', link: '/admin/user', icon: 'fa-solid fa-user' },
+  {
+    label: 'Gallery Images',
+    link: '/admin/gallery',
+    icon: 'fa-solid fa-photo-film'
+  },
+  {
+    label: 'Leaders',
+    link: '/admin/leaders',
+    icon: 'fa-solid fa-user-graduate'
+  },
+  {
+    label: 'Account setting',
+    link: '/admin/setting',
+    icon: 'fa-solid fa-gears'
+  }
+  // Add more items as needed
+];
+
 const ResSidebarTemplate = ({ children }) => {
   const [openNavbar, setOpenNavbarHandler] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
@@ -13,55 +66,6 @@ const ResSidebarTemplate = ({ children }) => {
   const openNavbarHandler = () => {
     setOpenNavbarHandler(!openNavbar);
   };
-  <i class="fa-regular fa-image"></i>;
-  const items = [
-    { label: 'Home', link: '/admin/home', icon: 'fa-solid fa-house' },
-    { label: 'Pages', link: '/admin/pages', icon: 'fa-brands fa-page4' },
-    {
-      label: 'Our Service',
-      link: '/admin/service',
-      icon: 'fa-solid fa-person-digging'
-    },
-    {
-      label: 'Deposit Product',
-      link: '/admin/deposit-product',
-      icon: 'fa-solid fa-piggy-bank'
-    },
-    {
-      label: 'Loans Product',
-      link: '/admin/loans-product',
-      icon: 'fa-solid fa-sack-dollar'
-    },
-    {
-      label: 'Download',
-      link: '/admin/download',
-      icon: 'fa-solid fa-download'
-    },
-    { label: 'Notice', link: '/admin/notice', icon: 'fa-solid fa-flag' },
-    {
-      label: 'Slider Images',
-      link: '/admin/slider-images',
-      icon: 'fa-regular fa-image'
-    },
-
-    { label: 'User', link: '/admin/user', icon: 'fa-solid fa-user' },
-    {
-      label: 'Gallery Images',
-      link: '/admin/gallery',
-      icon: 'fa-solid fa-photo-film'
-    },
-    {
-      label: 'Leaders',
-      link: '/admin/leaders',
-      icon: 'fa-solid fa-user-graduate'
-    },
-    {
-      label: 'Account setting',
-      link: '/admin/setting',
-      icon: 'fa-solid fa-gears'
-    }
-    // Add more items as needed
-  ];
 
   const handleItemClick = (item) => {
     setActiveItem(item);
@@ -134,10 +138,13 @@ const ResSidebarTemplate = ({ children }) => {
             openNavbar ? 'hidden md:block' : ''
           }`}
         >
-          <div
-            className={`bg-onBackground h-screen ${
-              openNavbar ? 'w-20 ' : 'w-72 '
-            }`}
+          <motion.div
+            initial="closed"
+            animate={openNavbar ? 'open' : 'closed'}
+            exit="closed"
+            variants={AccordionAnimation}
+            transition={{ duration: 0.5 }}
+            className={`bg-onBackground h-screen`}
           >
             <div className="flex justify-between items-center w-full border-b-[1px] p-4 ">
               <div className="flex gap-2">
@@ -193,7 +200,7 @@ const ResSidebarTemplate = ({ children }) => {
                 </ul>
               </nav>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
