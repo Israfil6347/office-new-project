@@ -150,7 +150,7 @@ function JobCirculars() {
                       Status
                     </label>
                     <p
-                      className={`p-2  flex justify-center  font-semibold md:p-0 md:font-normal rounded ${
+                      className={`p-2 text-surface  flex justify-center  font-semibold md:p-0 md:font-normal rounded ${
                         item.status === 'Publish'
                           ? 'w-16 bg-success'
                           : 'w-12 bg-error'

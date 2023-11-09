@@ -174,8 +174,9 @@ function Setting() {
                 <div>
                   <MyImageInput
                     disabled={false}
-                    label="Applicant Photo"
-                    name="ApplicantPhoto"
+                    label="New Original Logo"
+                    name="NewOriginalLogo"
+                    id="NewOriginalLogo"
                     // value={personSectionState.ApplicantPhoto}
                     required={true}
                     // error={personSectionState.Errors.ApplicantPhoto}

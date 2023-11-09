@@ -70,7 +70,14 @@ function DepositProduct() {
             <h2 className="text-2xl font-semibold">Deposit Product</h2>
             <p className="text-sm">See information about all Loans Product</p>
           </div>
-          <div className="  ">
+          <div className="m-2 ">
+            <div className="flex justify-end mb-4">
+              <MyButton type="button" styleClass="p-2">
+                <i class="fa-solid fa-plus">
+                  <span>Add </span>
+                </i>
+              </MyButton>
+            </div>
             <div className="">
               <from>
                 <label
@@ -167,9 +174,9 @@ function DepositProduct() {
                       Status
                     </label>
                     <p
-                      className={`p-2  flex justify-center  font-semibold md:p-0 md:font-normal rounded ${
+                      className={`p-2 text-surface flex justify-center  font-semibold md:p-0 md:font-normal rounded ${
                         item.status === 'Publish'
-                          ? 'w-16 bg-success'
+                          ? 'w-16 bg-success '
                           : 'w-12 bg-error'
                       }`}
                     >
