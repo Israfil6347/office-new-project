@@ -2,7 +2,17 @@ import React from 'react';
 import MyButton from '../../../../globalComponents/components/MyButton';
 import aboutImage1 from '../../../../assets/images/users/user.jpg';
 import MyDropdown from '../../../../globalComponents/components/MyDropdown';
-
+const leaderInfoData = [
+  {
+    name: 'Ignatious Hemanta Corraya',
+    position: 'President',
+    committee: 'Office Bearers',
+    slug: 'Office Bearers',
+    order: 'Office Bearers',
+    image: 'aboutImage1',
+    status: 'Publish'
+  }
+];
 function Leaders() {
   return (
     <div className="grid grid-cols-1 gap-4 p-4 ">
@@ -77,88 +87,94 @@ function Leaders() {
             </thead>
 
             <tbody className="flex-1  bg-backgroundVariant sm:flex-none ">
-              <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Name
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    The pioneer of the Credit Union
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Position
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    The pioneer of the Credit Union
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Committee
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    The pioneer of the Credit Union
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Slug
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    The pioneer of the Credit Union
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Order
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Image
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    <div className="w-14 h-14 rounded-full">
-                      <img
-                        src={aboutImage1}
-                        className="rounded-full"
-                        alt="img not found"
-                      />
-                    </div>
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Status
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    <MyButton
-                      type="button"
-                      label="published"
-                      styleClass="p-2"
-                    ></MyButton>
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Action
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-solid fa-eye"></i>
-                    </MyButton>
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                    </MyButton>
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-solid fa-trash-can"></i>
-                    </MyButton>
-                  </p>
-                </td>
-              </tr>
+              {leaderInfoData.map((item, index) => (
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Name
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.name}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Position
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.position}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Committee
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.committee}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Slug
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.slug}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Order
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.order}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Image
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <div className="w-14 h-14 rounded-full">
+                        <img
+                          src={item.image}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
+                      </div>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Status
+                    </label>
+                    <p
+                      className={`p-2  flex justify-center  font-semibold md:p-0 md:font-normal rounded ${
+                        item.status === 'Publish'
+                          ? 'w-16 bg-success'
+                          : 'w-12 bg-error'
+                      }`}
+                    >
+                      {item.status}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Action
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-eye"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </MyButton>
+                    </p>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

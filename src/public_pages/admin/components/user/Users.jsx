@@ -2,7 +2,16 @@ import React from 'react';
 import MyButton from '../../../../globalComponents/components/MyButton';
 import aboutImage1 from '../../../../assets/images/users/user.jpg';
 import MyDropdown from '../../../../globalComponents/components/MyDropdown';
-
+const userData = [
+  {
+    image: '',
+    name: 'Mr.jon dow',
+    email: 'email.email.com',
+    phone: '+880-1000000000',
+    role: 'admin',
+    status: 'Publish'
+  }
+];
 function Users() {
   return (
     <div className="grid grid-cols-1 gap-4 p-4 ">
@@ -75,92 +84,98 @@ function Users() {
             </thead>
 
             <tbody className="flex-1  bg-backgroundVariant sm:flex-none ">
-              <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Image
-                  </label>
-                  <div className="w-14 h-14 rounded-full">
-                    <img
-                      src={aboutImage1}
-                      className="rounded-full"
-                      alt="img not found"
-                    />
-                  </div>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Name
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    The pioneer of the Credit Union
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Email
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    admin@email.com
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Phone
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
+              {userData.map((item, index) => (
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Image
+                    </label>
+                    <div className="w-14 h-14 rounded-full">
+                      <img
+                        src={item.image}
+                        className="rounded-full"
+                        alt="img not found"
+                      />
+                    </div>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Name
+                    </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
-                      +880-1000000000
+                      {item.name}
                     </p>
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Role
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Email
+                    </label>
                     <p className="p-2 font-semibold md:p-0 md:font-normal">
-                      <MyButton
-                        type="button"
-                        label="admin"
-                        styleClass="p-2"
-                      ></MyButton>
+                      {item.email}
                     </p>
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Status
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    <MyButton
-                      type="button"
-                      label="Active"
-                      styleClass="p-2"
-                    ></MyButton>
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Action
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-solid fa-eye"></i>
-                    </MyButton>
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                    </MyButton>
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-solid fa-user-secret"></i>
-                    </MyButton>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Phone
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <p className="p-2 font-semibold md:p-0 md:font-normal">
+                        {item.phone}
+                      </p>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Role
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <p
+                        className={`p-2  flex justify-center  font-semibold md:p-0 md:font-normal rounded ${
+                          item.status === 'Publish'
+                            ? 'w-16 bg-success'
+                            : 'w-12 bg-error'
+                        }`}
+                      >
+                        {item.role}
+                      </p>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Status
+                    </label>
+                    <p
+                      className={`p-2  flex justify-center  font-semibold md:p-0 md:font-normal rounded ${
+                        item.status === 'Publish'
+                          ? 'w-16 bg-success'
+                          : 'w-12 bg-error'
+                      }`}
+                    >
+                      {item.status}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Action
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-eye"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-user-secret"></i>
+                      </MyButton>
 
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-solid fa-trash-can"></i>
-                    </MyButton>
-                  </p>
-                </td>
-              </tr>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </MyButton>
+                    </p>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

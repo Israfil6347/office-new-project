@@ -3,6 +3,17 @@ import MyButton from '../../../../globalComponents/components/MyButton';
 import aboutImage1 from '../../../../assets/images/users/user.jpg';
 import MyDropdown from '../../../../globalComponents/components/MyDropdown';
 
+const JobCircularsData = [
+  {
+    position: 'Web Application Developer',
+    vacancy: '02',
+    eduction: 'BSC IN CSE',
+    experience: 'Minimum 2 years',
+    deadline: '31 march 2024',
+    image: 'aboutImage1',
+    status: 'Publish'
+  }
+];
 function JobCirculars() {
   return (
     <div className="grid grid-cols-1 gap-4 p-4 ">
@@ -78,84 +89,94 @@ function JobCirculars() {
             </thead>
 
             <tbody className="flex-1  bg-backgroundVariant sm:flex-none ">
-              <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Position
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    The pioneer of the Credit Union
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Vacancy
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    The pioneer of the Credit Union
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Education
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Experience
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Deadline
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Image
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    <div className="w-14 h-14 rounded-full">
-                      <img
-                        src={aboutImage1}
-                        className="rounded-full"
-                        alt="img not found"
-                      />
-                    </div>
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Status
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal">
-                    <MyButton
-                      type="button"
-                      label="published"
-                      styleClass="p-2"
-                    ></MyButton>
-                  </p>
-                </td>
-                <td className="border border-gray-200 p-2 text-left">
-                  <label className="p-2 md:hidden md:p-0" for="">
-                    Action
-                  </label>
-                  <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-solid fa-eye"></i>
-                    </MyButton>
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                    </MyButton>
-                    <MyButton type="button" styleClass="p-2">
-                      <i class="fa-solid fa-trash-can"></i>
-                    </MyButton>
-                  </p>
-                </td>
-              </tr>
+              {JobCircularsData.map((item, index) => (
+                <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Position
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.position}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Vacancy
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.vacancy}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Education
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.eduction}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Experience
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.experience}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Deadline
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      {item.deadline}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Image
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal">
+                      <div className="w-14 h-14 rounded-full">
+                        <img
+                          src={item.image}
+                          className="rounded-full"
+                          alt="img not found"
+                        />
+                      </div>
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Status
+                    </label>
+                    <p
+                      className={`p-2  flex justify-center  font-semibold md:p-0 md:font-normal rounded ${
+                        item.status === 'Publish'
+                          ? 'w-16 bg-success'
+                          : 'w-12 bg-error'
+                      }`}
+                    >
+                      {item.status}
+                    </p>
+                  </td>
+                  <td className="border border-gray-200 p-2 text-left">
+                    <label className="p-2 md:hidden md:p-0" for="">
+                      Action
+                    </label>
+                    <p className="p-2 font-semibold md:p-0 md:font-normal flex justify-start">
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-eye"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </MyButton>
+                      <MyButton type="button" styleClass="p-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </MyButton>
+                    </p>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

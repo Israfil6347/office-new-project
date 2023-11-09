@@ -54,6 +54,7 @@
     --theme-on-error: #ffffff;
     --theme-success: #02692a;
     --theme-on-success: #ffffff;
+    --theme-on-warning: #fbbf24;
   }
   body::-webkit-scrollbar {
     display: none;
