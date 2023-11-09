@@ -39,6 +39,8 @@ import Leaders from './public_pages/admin/components/leaders/Leaders';
 import Setting from './public_pages/admin/components/setting/Setting';
 import Users from './public_pages/admin/components/user/Users';
 import Pages from './public_pages/admin/components/Pages/pages';
+import JobCirculars from './public_pages/admin/components/jobCirculer/JobCirculars';
+import AccountSetting from './public_pages/admin/components/accountSetting/AccountSetting';
 
 function App() {
   const location = useLocation();
@@ -64,6 +66,8 @@ function App() {
               <Route path="gallery" element={<GalleryImage />} />
               <Route path="leaders" element={<Leaders />} />
               <Route path="setting" element={<Setting />} />
+              <Route path="Job-Circulars" element={<JobCirculars />} />
+              <Route path="account_setting" element={<AccountSetting />} />
             </Route>
           </Routes>
         </div>

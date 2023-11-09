@@ -40,22 +40,33 @@ const items = [
     icon: 'fa-regular fa-image'
   },
 
-  { label: 'User', link: '/admin/user', icon: 'fa-solid fa-user' },
   {
     label: 'Gallery Images',
     link: '/admin/gallery',
     icon: 'fa-solid fa-photo-film'
   },
   {
+    label: 'Job Circulars',
+    link: '/admin/Job-Circulars',
+    icon: 'fa-solid fa-gears'
+  },
+  {
     label: 'Leaders',
     link: '/admin/leaders',
     icon: 'fa-solid fa-user-graduate'
   },
+  { label: 'User', link: '/admin/user', icon: 'fa-solid fa-user' },
+  // {
+  //   label: 'Account setting',
+  //   link: '/admin/account_setting',
+  //   icon: 'fa-solid fa-gears'
+  // },
   {
-    label: 'Account setting',
+    label: 'setting',
     link: '/admin/setting',
     icon: 'fa-solid fa-gears'
   }
+
   // Add more items as needed
 ];
 

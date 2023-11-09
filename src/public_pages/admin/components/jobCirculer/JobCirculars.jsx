@@ -3,14 +3,14 @@ import MyButton from '../../../../globalComponents/components/MyButton';
 import aboutImage1 from '../../../../assets/images/users/user.jpg';
 import MyDropdown from '../../../../globalComponents/components/MyDropdown';
 
-function Notice() {
+function JobCirculars() {
   return (
     <div className="grid grid-cols-1 gap-4 p-4 ">
       <div className="bg-white p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
           <div className="flex flex-col ">
-            <h2 className="text-2xl font-semibold">Notice</h2>
-            <p className="text-sm">See information about all Notice</p>
+            <h2 className="text-2xl font-semibold">Job Circulars</h2>
+            <p className="text-sm">See information about all Job-Circulars</p>
           </div>
           <div className="m-2 ">
             <div className="flex justify-end mb-4">
@@ -50,14 +50,21 @@ function Notice() {
             <thead className="">
               <tr className="sticky top-0 hidden h-16 w-full bg-surface text-sm uppercase text-onSurface shadow-sm md:table-row">
                 <th className="border border-gray-200 p-2 text-left ">
-                  <p className="p-2 md:p-0"> Title</p>
+                  <p className="p-2 md:p-0"> Position</p>
                 </th>
                 <th className="border border-gray-200 p-2 text-left ">
-                  <p className="p-2 md:p-0">Slug</p>
+                  <p className="p-2 md:p-0">Vacancy</p>
                 </th>
                 <th className="border border-gray-200 p-2 text-left ">
-                  <p className="p-2 md:p-0">Order</p>
+                  <p className="p-2 md:p-0">Education</p>
                 </th>
+                <th className="border border-gray-200 p-2 text-left ">
+                  <p className="p-2 md:p-0">Experience</p>
+                </th>
+                <th className="border border-gray-200 p-2 text-left ">
+                  <p className="p-2 md:p-0">Deadline</p>
+                </th>
+
                 <th className="border border-gray-200 p-2 text-left ">
                   <p className="p-2 md:p-0">Image</p>
                 </th>
@@ -74,7 +81,7 @@ function Notice() {
               <tr className="flex w-full flex-col flex-wrap border-t first:border-t-0 even:bg-red-50 border border-gray-700  md:my-0 md:table-row">
                 <td className="border border-gray-200 p-2 text-left">
                   <label className="p-2 md:hidden md:p-0" for="">
-                    Title
+                    Position
                   </label>
                   <p className="p-2 font-semibold md:p-0 md:font-normal">
                     The pioneer of the Credit Union
@@ -82,7 +89,7 @@ function Notice() {
                 </td>
                 <td className="border border-gray-200 p-2 text-left">
                   <label className="p-2 md:hidden md:p-0" for="">
-                    Slug
+                    Vacancy
                   </label>
                   <p className="p-2 font-semibold md:p-0 md:font-normal">
                     The pioneer of the Credit Union
@@ -90,7 +97,19 @@ function Notice() {
                 </td>
                 <td className="border border-gray-200 p-2 text-left">
                   <label className="p-2 md:hidden md:p-0" for="">
-                    Order
+                    Education
+                  </label>
+                  <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
+                </td>
+                <td className="border border-gray-200 p-2 text-left">
+                  <label className="p-2 md:hidden md:p-0" for="">
+                    Experience
+                  </label>
+                  <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
+                </td>
+                <td className="border border-gray-200 p-2 text-left">
+                  <label className="p-2 md:hidden md:p-0" for="">
+                    Deadline
                   </label>
                   <p className="p-2 font-semibold md:p-0 md:font-normal">0</p>
                 </td>
@@ -183,4 +202,4 @@ function Notice() {
   );
 }
 
-export default Notice;
+export default JobCirculars;
