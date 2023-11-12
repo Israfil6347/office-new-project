@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MyModal from '../../../../globalComponents/components/MyModal';
 import MyDialogueView from '../../../../globalComponents/components/dialogues/MyDialogueView';
 import MyButton from '../../../../globalComponents/components/MyButton';
@@ -7,22 +7,37 @@ import MyInputBox from '../../../../globalComponents/components/MyInputBox';
 import ReactQuill from 'react-quill';
 import usePageData from '../../hook/usePageData';
 import { PageDataValidation } from '../../Validation/PageDataValidation';
+import { PageData } from '../../components/data/PageData';
 
 function PostAddPage({
   openPageViewDialog,
   setOpenPageViewDialog,
-  ViewPageDatadiaglog,
+  setEditPageDatadiaglog,
   editPageDatadiaglog,
   PageDataById,
-  setViewPageDatadiaglog,
-  setEditPageDatadiaglog
+  onlyShowData,
+  setOnlyShowData,
+  setEditPageData
 }) {
   const { PageDataState, updatePageDataStateHandler, setPageDataState } =
     usePageData();
 
+  console.log(onlyShowData);
+
   const onSubmitHandler = () => {
     console.log(PageDataState);
   };
+
+  useEffect(() => {
+    if (onlyShowData) {
+      setPageDataState(PageDataById);
+    } else if (editPageDatadiaglog) {
+      setPageDataState(PageDataById);
+      console.log('can not show data');
+    } else {
+      setPageDataState(PageData);
+    }
+  }, [onlyShowData, editPageDatadiaglog]);
   return (
     <div>
       <MyModal
@@ -30,15 +45,15 @@ function PostAddPage({
         size="M"
         onClose={() => {
           setOpenPageViewDialog(false);
-          setViewPageDatadiaglog(false);
-          setEditPageDatadiaglog(false);
+          setOnlyShowData(false);
+          setEditPageData(false);
         }}
       >
         <MyDialogueView
           onCancel={() => {
             setOpenPageViewDialog(false);
-            setViewPageDatadiaglog(false);
-            setEditPageDatadiaglog(false);
+            setOnlyShowData(false);
+            setEditPageData(false);
           }}
           dialogueHeader={
             <div className="header flex   bg-background p-6 text-2xl font-bold text-onSurface">
@@ -51,7 +66,7 @@ function PostAddPage({
               <MyButton
                 type="button"
                 name="yes"
-                label="Submit"
+                label={setOnlyShowData ? 'Close' : 'Submit'}
                 onClick={() => {
                   var error = '';
                   for (var fieldName in PageDataState) {
@@ -89,17 +104,14 @@ function PostAddPage({
                     disabled={false}
                     label="Page Image"
                     name="pageImage"
-                    value={PageDataState.pageImage}
+                    value={PageDataState?.pageImage}
                     required={true}
-                    error={PageDataState.errors.pageImage}
+                    error={PageDataState?.errors?.pageImage}
                     heightClass="h-32"
                     onChangeHandler={(fieldName, fieldValue) => {
                       updatePageDataStateHandler(fieldName, fieldValue);
                     }}
                   />
-                </div>
-                <div className="flex items-center  ">
-                  <img src="#" className="h-35 w-35 " alt="img not found" />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
@@ -108,9 +120,9 @@ function PostAddPage({
                   label="Title"
                   name="title"
                   inputType="text"
-                  value={PageDataState.title}
+                  value={PageDataState?.title}
                   disabled={false}
-                  error={PageDataState.errors.title}
+                  error={PageDataState?.errors?.title}
                   onChangeHandler={(event) => {
                     updatePageDataStateHandler(
                       event.target.name,
@@ -122,8 +134,8 @@ function PostAddPage({
                   id="Order"
                   label="Order"
                   name="order"
-                  value={PageDataState.order}
-                  error={PageDataState.errors.order}
+                  value={PageDataState?.order}
+                  error={PageDataState?.errors?.order}
                   inputType="number"
                   disabled={false}
                   onChangeHandler={(event) => {
@@ -139,8 +151,8 @@ function PostAddPage({
                   label="Slug"
                   name="slug"
                   inputType="text"
-                  value={PageDataState.slug}
-                  error={PageDataState.errors.slug}
+                  value={PageDataState?.slug}
+                  error={PageDataState?.errors?.slug}
                   disabled={false}
                   onChangeHandler={(event) => {
                     updatePageDataStateHandler(
@@ -155,7 +167,7 @@ function PostAddPage({
                   theme="snow"
                   name="sortDescription"
                   id="Sort Description"
-                  value={PageDataState.sortDescription}
+                  value={PageDataState?.sortDescription}
                   placeholder="Sort Description"
                   onChange={(value) => {
                     updatePageDataStateHandler('sortDescription', value);
@@ -169,7 +181,7 @@ function PostAddPage({
                   name="description"
                   id="Description"
                   placeholder="Description"
-                  value={PageDataState.description}
+                  value={PageDataState?.description}
                   onChange={(value) => {
                     updatePageDataStateHandler('description', value);
                   }}
