@@ -11,6 +11,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import MyTextInput from '../../../../globalComponents/components/MyTextInput';
 import MyImageInput from '../../../../globalComponents/components/MyImageInput';
+import PostAddPage from '../../share/diaglog/PostAddPage';
 
 const pageData = [
   {
@@ -32,8 +33,12 @@ const pageData = [
 ];
 
 function Pages() {
-  const [openEditDialog, setOpenEditDialog] = useState(false);
-  const [OpenViewDialog, setOpenViewDialog] = useState(false);
+  const [openPageViewDialog, setOpenPageViewDialog] = useState(false);
+
+  const [ViewPageDatadiaglog, setViewPageDatadiaglog] = useState(false);
+  const [editPageDatadiaglog, setEditPageDatadiaglog] = useState(false);
+  const [PageDataById, setPageDataById] = useState({});
+
   const [paginationRequestObj, setPaginationRequestObj] = useState({
     ActiveStatus: -1,
     startRec: 0,
@@ -74,207 +79,16 @@ function Pages() {
   // };
   return (
     <div>
-      {/* Edit dialogs Open start */}
-      <MyModal
-        show={openEditDialog}
-        size="M"
-        onClose={() => {
-          setOpenEditDialog(false);
-        }}
-      >
-        <MyDialogueView
-          onCancel={() => {
-            setOpenEditDialog(false);
-          }}
-          dialogueHeader={
-            <div className="header flex   bg-background p-6 text-2xl font-bold text-onSurface">
-              <img src={Logo} alt="" width="40" height="40" />
-              <p className="ml-2 antialiased">Page</p>
-            </div>
-          }
-          dialogueFooter={
-            <div className="flex  justify-end gap-4 bg-background p-4 ">
-              <MyButton
-                type="button"
-                name="yes"
-                label="Submit"
-                styleClass="w-1/2 rounded border bg-primary p-2 font-semibold uppercase text-onPrimary disabled:bg-gray-400 md:w-1/4"
-              ></MyButton>
-            </div>
-          }
-        >
-          <div
-            className="scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-200  w-full overflow-y-scroll rounded-lg p-6 md:p-16 "
-            style={{ maxHeight: window.innerHeight - 400 }}
-          >
-            <div className="grid grid-cols-1 gap-6">
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <MyImageInput
-                    disabled={false}
-                    label="Applicant Photo"
-                    name="ApplicantPhoto"
-                    // value={personSectionState.ApplicantPhoto}
-                    required={true}
-                    // error={personSectionState.Errors.ApplicantPhoto}
-                    heightClass="h-32"
-                    onChangeHandler={(fieldName, fieldValue) => {
-                      // updatePersonSectionState(fieldName, fieldValue);
-                    }}
-                  />
-                </div>
-                <div className="flex items-center  ">
-                  <img src={Logo} className="h-35 w-35 " alt="img not found" />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
-                <MyInputBox
-                  id="title"
-                  label="Title"
-                  name="Title"
-                  inputType="text"
-                  disabled={false}
-                />
-                <MyInputBox
-                  id="Order"
-                  label="Order"
-                  name="Order"
-                  inputType="number"
-                  disabled={false}
-                />
+      <PostAddPage
+        openPageViewDialog={openPageViewDialog}
+        setOpenPageViewDialog={setOpenPageViewDialog}
+        ViewPageDatadiaglog={ViewPageDatadiaglog}
+        setViewPageDatadiaglog={setViewPageDatadiaglog}
+        setEditPageDatadiaglog={setEditPageDatadiaglog}
+        editPageDatadiaglog={editPageDatadiaglog}
+        PageDataById={PageDataById}
+      />
 
-                <MyInputBox
-                  id="slug"
-                  label="Slug"
-                  name="slug"
-                  inputType="text"
-                  disabled={false}
-                />
-              </div>
-              <div>
-                <ReactQuill
-                  theme="snow"
-                  id="Sort Description"
-                  placeholder="Sort Description"
-                  name=""
-                />
-              </div>
-
-              <div>
-                <ReactQuill
-                  theme="snow"
-                  id="Description"
-                  placeholder="Description"
-                  name=""
-                />
-              </div>
-            </div>
-          </div>
-        </MyDialogueView>
-      </MyModal>
-      {/* Edit dialogs open close  */}
-      {/* View dialogs Open start */}
-      <MyModal
-        show={OpenViewDialog}
-        size="M"
-        onClose={() => {
-          setOpenViewDialog(false);
-        }}
-      >
-        <MyDialogueView
-          onCancel={() => {
-            setOpenViewDialog(false);
-          }}
-          dialogueHeader={
-            <div className="header flex   bg-background p-6 text-2xl font-bold text-onSurface">
-              <img src={Logo} alt="" width="40" height="40" />
-              <p className="ml-2 antialiased">Page</p>
-            </div>
-          }
-          dialogueFooter={
-            <div className="flex  justify-end gap-4 bg-background p-4 ">
-              <MyButton
-                type="button"
-                name="Ok"
-                label="Ok"
-                styleClass="w-1/2 rounded border bg-primary p-2 font-semibold uppercase text-onPrimary disabled:bg-gray-400 md:w-1/4"
-                onClick={() => {
-                  setOpenViewDialog(false);
-                }}
-              ></MyButton>
-            </div>
-          }
-        >
-          <div
-            className="scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-200  w-full overflow-y-scroll rounded-lg p-6 md:p-16 "
-            style={{ maxHeight: window.innerHeight - 400 }}
-          >
-            <div className="grid grid-cols-1 gap-6">
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <MyImageInput
-                    disabled={false}
-                    label="Applicant Photo"
-                    name="ApplicantPhoto"
-                    // value={personSectionState.ApplicantPhoto}
-                    required={true}
-                    // error={personSectionState.Errors.ApplicantPhoto}
-                    heightClass="h-32"
-                    onChangeHandler={(fieldName, fieldValue) => {
-                      // updatePersonSectionState(fieldName, fieldValue);
-                    }}
-                  />
-                </div>
-                <div className="flex items-center  ">
-                  <img src={Logo} className="h-35 w-35 " alt="img not found" />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
-                <MyInputBox
-                  id="title"
-                  label="Title"
-                  name="Title"
-                  inputType="text"
-                  disabled={false}
-                />
-                <MyInputBox
-                  id="Order"
-                  label="Order"
-                  name="Order"
-                  inputType="number"
-                  disabled={false}
-                />
-
-                <MyInputBox
-                  id="slug"
-                  label="Slug"
-                  name="slug"
-                  inputType="text"
-                  disabled={false}
-                />
-              </div>
-              <div>
-                <ReactQuill
-                  theme="snow"
-                  id="Sort Description"
-                  placeholder="Sort Description"
-                  name=""
-                />
-              </div>
-
-              <div>
-                <ReactQuill
-                  theme="snow"
-                  id="Description"
-                  placeholder="Description"
-                  name=""
-                />
-              </div>
-            </div>
-          </div>
-        </MyDialogueView>
-      </MyModal>
-      {/* View dialogs open close  */}
       <div className="grid grid-cols-1 gap-4 p-4 ">
         <div className="bg-white p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
@@ -284,7 +98,13 @@ function Pages() {
             </div>
             <div className="m-2 ">
               <div className="flex justify-end mb-4">
-                <MyButton type="button" styleClass="p-2">
+                <MyButton
+                  type="button"
+                  styleClass="p-2"
+                  onClick={() => {
+                    setOpenPageViewDialog(true);
+                  }}
+                >
                   <i class="fa-solid fa-plus">
                     <span>Add </span>
                   </i>
@@ -404,7 +224,8 @@ function Pages() {
                           type="button"
                           styleClass="p-2"
                           onClick={() => {
-                            setOpenViewDialog(true);
+                            setViewPageDatadiaglog(true);
+                            setPageDataById(item);
                           }}
                         >
                           <i class="fa-solid fa-eye"></i>
@@ -413,7 +234,8 @@ function Pages() {
                           type="button"
                           styleClass="p-2"
                           onClick={() => {
-                            setOpenEditDialog(true);
+                            setEditPageDatadiaglog(true);
+                            setPageDataById(item);
                           }}
                         >
                           <i class="fa-regular fa-pen-to-square"></i>
