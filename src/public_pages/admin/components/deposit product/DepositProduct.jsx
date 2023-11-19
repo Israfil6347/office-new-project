@@ -81,7 +81,7 @@ function DepositProduct() {
       />
       <div className="grid grid-cols-1 gap-4 p-4 ">
         <div className="bg-white p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
             <div className="">
               <h2 className="text-2xl font-semibold">Deposit Product</h2>
               <p className="text-sm">See information about all Loans Product</p>
@@ -123,7 +123,7 @@ function DepositProduct() {
             className="overflow-hidden overflow-y-scroll  overflow-x-scroll"
             style={
               ({ maxWidth: window.innerWidth - 0 },
-              { height: window.innerHeight - 383 })
+              { height: window.innerHeight - 405 })
             }
           >
             <table className="w-full table">

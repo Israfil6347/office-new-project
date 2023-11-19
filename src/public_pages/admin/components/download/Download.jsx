@@ -82,7 +82,7 @@ function Download() {
             className="overflow-hidden overflow-y-scroll  overflow-x-scroll"
             style={
               ({ maxWidth: window.innerWidth - 0 },
-              { height: window.innerHeight - 383 })
+              { height: window.innerHeight - 390 })
             }
           >
             <table className="w-full table">
