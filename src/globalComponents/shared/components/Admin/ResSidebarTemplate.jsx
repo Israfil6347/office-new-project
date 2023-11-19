@@ -62,7 +62,7 @@ const items = [
   //   icon: 'fa-solid fa-gears'
   // },
   {
-    label: 'setting',
+    label: 'Setting',
     link: '/admin/setting',
     icon: 'fa-solid fa-gears'
   }
@@ -81,9 +81,6 @@ const ResSidebarTemplate = ({ children }) => {
   const handleItemClick = (item) => {
     setActiveItem(item);
   };
-
-  console.log(activeItem);
-  console.log(items);
 
   return (
     <>

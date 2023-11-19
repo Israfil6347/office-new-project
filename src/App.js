@@ -47,7 +47,6 @@ function App() {
 
   const urlArrays = location.pathname.split('/');
 
-  console.log(urlArrays[1]);
   return (
     <>
       {urlArrays[1] === 'admin' ? (

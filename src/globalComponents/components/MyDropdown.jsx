@@ -20,7 +20,7 @@ function MyDropdown({
           id={name}
           disabled={disabled}
           value={value}
-          className={` h-10 border-onBackground disabled:bg-gray-50 disabled:opacity-90 disabled:border-gray-300 disabled:text-onSurface peer w-full rounded bg-surface transition-colors focus:border-primary ${
+          className={` h-10  border-primary border-[1px] disabled:bg-gray-50 disabled:opacity-90 disabled:border-gray-300 disabled:text-onSurface peer w-full rounded bg-surface transition-colors focus:border-primary ${
             error ? 'ring-1 ring-error' : ''
           }`}
           onChange={selectionDownHandler}
@@ -37,8 +37,8 @@ function MyDropdown({
         <div className="text-xs text-error">{error}</div>
         <label
           htmlFor={name}
-          className={`absolute left-0 top-3 mx-3 cursor-text bg-surface  
-          px-1 transition-all duration-200 peer-focus:-top-2 peer-focus:bg-surface peer-focus:text-xs peer-focus:text-primary
+          className={`absolute left-0 top-2 mx-1 cursor-text bg-surface  
+          px-3 transition-all duration-200 peer-focus:-top-2 peer-focus:bg-surface peer-focus:text-xs peer-focus:text-primary
           ${value ? '-top-[8px] text-xs text-primary' : ''}`}
         >
           {label}

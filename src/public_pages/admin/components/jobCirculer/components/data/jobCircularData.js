@@ -1,0 +1,20 @@
+export const jobCircularData = {
+  jobPosition: '',
+  slug: '',
+  numberOfVacancy: '',
+  employStatus: '',
+  religion: '',
+  ageRange: '',
+  gender: '',
+  jobLocation: '',
+  salary: '',
+  applicationDeadline: '',
+  jobContext: '',
+  jobResponsibility: '',
+  experienceRequirements: '',
+  additionalRequirement: '',
+  compensationAndOtherBenefits: '',
+  applicationInstruction: '',
+  eduction: '',
+  status: ''
+};
