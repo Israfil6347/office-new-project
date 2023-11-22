@@ -1,32 +1,49 @@
+import { useState } from 'react';
+
 function MyDropdown({
+  id,
   name,
   label,
-  dropDownData,
-  onChange,
-  required,
   value,
+  defaultValue,
   error,
-  disabled
+  required,
+  disabled,
+  fullWidth = true,
+  isView,
+  leftIcon,
+  dropDownData,
+  onChange
 }) {
-  const selectionDownHandler = (e) => {
-    onChange(e.target.name, e.target.value);
-  };
+  const [selected, setSelected] = useState(value);
 
   return (
-    <>
-      <div className="relative w-full text-onSurface">
+    <div className={`${fullWidth ? 'block w-full' : 'inline'} text-onSurface`}>
+      <div className="relative">
         <select
           name={name}
-          id={name}
-          disabled={disabled}
-          value={value}
-          className={` h-10  border-primary border-[1px] disabled:bg-gray-50 disabled:opacity-90 disabled:border-gray-300 disabled:text-onSurface peer w-full rounded bg-surface transition-colors focus:border-primary ${
-            error ? 'ring-1 ring-error' : ''
+          disabled={isView ? true : disabled}
+          value={selected ? selected : value}
+          className={`peer  h-10 ${
+            isView ? 'border-none' : ' border-primary border-[1px]'
+          } rounded border-primary border-[1px] bg-surface
+          ${
+            fullWidth ? 'w-full' : 'w-64'
+          } transition-colors focus:border-primary 
+          ${
+            leftIcon && 'pl-10'
+          } disabled:bg-onDisabled disabled:font-semibold disabled:text-gray-500 ${
+            error
+              ? 'border-error focus:border-error focus:ring-1 focus:ring-error'
+              : 'focus:border-primary'
           }`}
-          onChange={selectionDownHandler}
+          onChange={(event) => {
+            // onChange(event);
+            setSelected(event.target.value);
+          }}
         >
-          <option key={-1} value="Select">
-            {label}
+          <option key={-1} value={''}>
+            None
           </option>
           {dropDownData?.map((item, index) => (
             <option key={index} value={item.value}>
@@ -34,18 +51,39 @@ function MyDropdown({
             </option>
           ))}
         </select>
-        <div className="text-xs text-error">{error}</div>
+
         <label
-          htmlFor={name}
-          className={`absolute left-0 top-2 mx-1 cursor-text bg-surface  
-          px-3 transition-all duration-200 peer-focus:-top-2 peer-focus:bg-surface peer-focus:text-xs peer-focus:text-primary
-          ${value ? '-top-[8px] text-xs text-primary' : ''}`}
+          htmlFor={id}
+          className={`absolute left-0  mx-3 cursor-text rounded  bg-surface peer-focus:ml-3
+          ${
+            (selected || defaultValue) && leftIcon
+              ? leftIcon
+                ? '-top-2 ml-3 text-xs'
+                : ''
+              : selected || defaultValue
+              ? '-top-2 ml-3 text-xs'
+              : leftIcon
+              ? 'top-2.5 ml-10'
+              : 'top-2.5 ml-3'
+          } 
+      px-1 transition-all duration-200 peer-focus:-top-2 peer-focus:bg-surface
+      ${(disabled || isView) && 'bg-onDisabled text-primary'}
+      peer-focus:text-xs peer-focus:text-primary`}
         >
           {label}
-          <span className="font-medium text-error">{required ? ' *' : ''}</span>
+          <span className="text-xs text-error">{required ? ' *' : ''}</span>
         </label>
+
+        {leftIcon && (
+          <span className="absolute left-0 top-0 flex h-full w-12 flex-col items-center justify-center">
+            {leftIcon}
+          </span>
+        )}
       </div>
-    </>
+      <div className="text-error">
+        {error ? <span className="text-xs text-error">{error}</span> : null}
+      </div>
+    </div>
   );
 }
 

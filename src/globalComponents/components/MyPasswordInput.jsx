@@ -34,7 +34,9 @@ function MyPasswordInputBox({
           value={value}
           defaultValue={defaultValue}
           disabled={disabled}
-          className={`peer h-10 border-[1px] ${leftIcon && 'pl-10'} ${
+          className={`peer h-10 px-3 border-primary border-[1px] ${
+            leftIcon && 'pl-10'
+          } ${
             fullWidth ? 'w-full' : 'w-64'
           } rounded  bg-surface transition-colors focus:border-primary disabled:bg-onDisabled disabled:font-semibold disabled:text-gray-500 ${
             error ? 'border-error' : ''

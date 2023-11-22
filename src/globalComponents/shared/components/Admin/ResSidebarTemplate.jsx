@@ -56,11 +56,11 @@ const items = [
     icon: 'fa-solid fa-user-graduate'
   },
   { label: 'User', link: '/admin/user', icon: 'fa-solid fa-user' },
-  // {
-  //   label: 'Account setting',
-  //   link: '/admin/account_setting',
-  //   icon: 'fa-solid fa-gears'
-  // },
+  {
+    label: 'Account setting',
+    link: '/admin/account-setting',
+    icon: 'fa-solid fa-gears'
+  },
   {
     label: 'Setting',
     link: '/admin/setting',

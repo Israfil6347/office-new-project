@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import MyButton from '../../../../globalComponents/components/MyButton';
 import aboutImage1 from '../../../../assets/images/users/user.jpg';
 import MyDropdown from '../../../../globalComponents/components/MyDropdown';
 import MyInputBox from '../../../../globalComponents/components/MyInputBox';
 import MyImageInput from '../../../../globalComponents/components/MyImageInput';
+import useSettingHook from './hook/useSettingHook';
 
 function Setting() {
+  const { setSettingAdd, settingAdd, updateSettingStateHandler } =
+    useSettingHook();
+  console.log(settingAdd);
   return (
     <div className="grid grid-cols-1 gap-4 p-4 ">
       <div className="bg-white p-6">
@@ -29,6 +33,14 @@ function Setting() {
                   name="OrganizationName"
                   inputType="text"
                   disabled={false}
+                  value={settingAdd?.OrganizationName}
+                  error={settingAdd?.error?.OrganizationName}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
 
@@ -39,6 +51,14 @@ function Setting() {
                   name="OrganizationShortName"
                   inputType="text"
                   disabled={false}
+                  value={settingAdd?.OrganizationShortName}
+                  error={settingAdd?.error?.OrganizationShortName}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
 
@@ -49,6 +69,14 @@ function Setting() {
                   name="Slogan"
                   inputType="text"
                   disabled={false}
+                  value={settingAdd?.Slogan}
+                  error={settingAdd?.error?.Slogan}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -58,6 +86,14 @@ function Setting() {
                   name="address"
                   inputType="text"
                   disabled={false}
+                  value={settingAdd?.address}
+                  error={settingAdd?.error?.address}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -67,6 +103,14 @@ function Setting() {
                   name="hrEmail"
                   inputType="email"
                   disabled={false}
+                  value={settingAdd?.hrEmail}
+                  error={settingAdd?.error?.hrEmail}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -76,6 +120,14 @@ function Setting() {
                   name="hrSupportEmail"
                   inputType="email"
                   disabled={false}
+                  value={settingAdd?.hrSupportEmail}
+                  error={settingAdd?.error?.hrSupportEmail}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -85,6 +137,14 @@ function Setting() {
                   name="technicalSupportEmail"
                   inputType="email"
                   disabled={false}
+                  value={settingAdd?.technicalSupportEmail}
+                  error={settingAdd?.error?.technicalSupportEmail}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -94,6 +154,14 @@ function Setting() {
                   name="fax"
                   inputType="email"
                   disabled={false}
+                  value={settingAdd?.fax}
+                  error={settingAdd?.error?.fax}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -103,6 +171,14 @@ function Setting() {
                   name="hRContactNo"
                   inputType="number"
                   disabled={false}
+                  value={settingAdd?.hRContactNo}
+                  error={settingAdd?.error?.hRContactNo}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -112,6 +188,14 @@ function Setting() {
                   name="customerSupportContactNo"
                   inputType="number"
                   disabled={false}
+                  value={settingAdd?.customerSupportContactNo}
+                  error={settingAdd?.error?.customerSupportContactNo}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -121,6 +205,14 @@ function Setting() {
                   name="technicalSupportContactNo"
                   inputType="number"
                   disabled={false}
+                  value={settingAdd?.technicalSupportContactNo}
+                  error={settingAdd?.error?.technicalSupportContactNo}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -130,6 +222,14 @@ function Setting() {
                   name="officeHour"
                   inputType="text"
                   disabled={false}
+                  value={settingAdd?.officeHour}
+                  error={settingAdd?.error?.officeHour}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -139,6 +239,14 @@ function Setting() {
                   name="facebookPage"
                   inputType="text"
                   disabled={false}
+                  value={settingAdd?.facebookPage}
+                  error={settingAdd?.error?.facebookPage}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -148,6 +256,14 @@ function Setting() {
                   name="messengerLink"
                   inputType="email"
                   disabled={false}
+                  value={settingAdd?.messengerLink}
+                  error={settingAdd?.error?.messengerLink}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -157,6 +273,14 @@ function Setting() {
                   name="youtubeChanel"
                   inputType="email"
                   disabled={false}
+                  value={settingAdd?.youtubeChanel}
+                  error={settingAdd?.error?.youtubeChanel}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
               <div>
@@ -166,6 +290,14 @@ function Setting() {
                   name="featuredVideoEmbeddedLink"
                   inputType="email"
                   disabled={false}
+                  value={settingAdd?.featuredVideoEmbeddedLink}
+                  error={settingAdd?.error?.featuredVideoEmbeddedLink}
+                  onChangeHandler={(event) => {
+                    updateSettingStateHandler(
+                      event.target.name,
+                      event.target.value
+                    );
+                  }}
                 />
               </div>
             </div>
@@ -177,20 +309,13 @@ function Setting() {
                     label="New Original Logo"
                     name="NewOriginalLogo"
                     id="NewOriginalLogo"
-                    // value={personSectionState.ApplicantPhoto}
+                    value={settingAdd?.NewOriginalLogo}
                     required={true}
-                    // error={personSectionState.Errors.ApplicantPhoto}
+                    error={settingAdd?.error?.NewOriginalLogo}
                     heightClass="h-32"
                     onChangeHandler={(fieldName, fieldValue) => {
-                      // updatePersonSectionState(fieldName, fieldValue);
+                      updateSettingStateHandler(fieldName, fieldValue);
                     }}
-                  />
-                </div>
-                <div className="flex items-center justify-center">
-                  <img
-                    className="w-24 h-24"
-                    src={aboutImage1}
-                    alt="img not found"
                   />
                 </div>
               </div>
@@ -200,20 +325,13 @@ function Setting() {
                     disabled={false}
                     label="Applicant Photo"
                     name="ApplicantPhoto"
-                    // value={personSectionState.ApplicantPhoto}
+                    value={settingAdd?.ApplicantPhoto}
                     required={true}
-                    // error={personSectionState.Errors.ApplicantPhoto}
+                    error={settingAdd?.error?.ApplicantPhoto}
                     heightClass="h-32"
                     onChangeHandler={(fieldName, fieldValue) => {
-                      // updatePersonSectionState(fieldName, fieldValue);
+                      updateSettingStateHandler(fieldName, fieldValue);
                     }}
-                  />
-                </div>
-                <div className="flex items-center justify-center">
-                  <img
-                    className="w-24 h-24"
-                    src={aboutImage1}
-                    alt="img not found"
                   />
                 </div>
               </div>
